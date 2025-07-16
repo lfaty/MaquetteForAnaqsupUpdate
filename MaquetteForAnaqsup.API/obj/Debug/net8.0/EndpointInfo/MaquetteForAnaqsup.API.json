@@ -1,0 +1,882 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Maquette API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Dashboards/GetAllUniversite": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllFaculte": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllDepartement": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllFormation": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllParcour": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllGrade": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllNiveau": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllSemestre": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllUniteEnseignement": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllElementConstitutif": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllAtomePedagogique": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllData": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetFilterDataByCodeUniv": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllDataCompleted": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllFormationByUniv": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllFormationByFac": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paramIdFaculte",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/FilterFormation": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paramIdFaculte",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "paramIdDept",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/FilterSearch": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboards/GetAllFormationBeetwenTwoUniv": {
+      "get": {
+        "tags": [
+          "Dashboards"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv1",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paramCodeUniv2",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetAllData": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatUniversiteAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatDepartementAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatGradeAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatNiveauAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatSemestreAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatFormationAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatParcourAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatUniteEnseignementAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatElementConstitutifAsync": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetDropdown": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetAllStatData": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetFilterData": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "parameters": [
+          {
+            "name": "paramCodeUniv",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paramDept",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paramGrade",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paramFormation",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paramNiveau",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "paramSemestre",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "paramParcour",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatComparaisonData": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatDataCommune": {
+      "post": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetStatDataDifferente": {
+      "post": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataParameterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetAllStatDataSearch": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DataProcessings/GetFilterDataSearch": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "parameters": [
+          {
+            "name": "paramLibelleEC",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ImportDatas/UploadFile": {
+      "post": {
+        "tags": [
+          "ImportDatas"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "formFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "formFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ImportDatas/VentileData": {
+      "post": {
+        "tags": [
+          "ImportDatas"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DataParameterDto": {
+        "type": "object",
+        "properties": {
+          "codeUnivs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "grade": {
+            "type": "string",
+            "nullable": true
+          },
+          "niveau": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "semestre": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

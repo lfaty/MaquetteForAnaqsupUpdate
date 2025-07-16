@@ -1,0 +1,116 @@
+﻿@model IEnumerable<MaquetteForAnaqsup.UI.Models.DTO.DataUniteEnseignementDto>
+
+@{
+    ViewData["Title"] = "GetAllFormation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Liste des unités d'enseignement</h3>
+                </div>
+                <div class="mt-3 text-end">
+                    <a asp-action="Index" class="btn btn-danger btn-lg p-3 mb-2">Retour</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive-sm">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CodeUniversite)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Departement)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Abreviation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LibelleFormation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Grade)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Niveau)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LibelleParcour)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CodeUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LibelleUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CreditUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CoefUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NatureUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TotalVolumeHoraire)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeUniversite)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Departement)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Abreviation)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleFormation)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Grade)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Niveau)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleParcour)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreditUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CoefUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NatureUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalVolumeHoraire)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿using MaquetteForAnaqsup.API.Base;
+
+namespace MaquetteForAnaqsup.API.Models.Domain
+{
+    public class Semestre : IEntityBase
+    {
+        public Guid Id { get; set; }
+        public int? NumSemestre { get; set; }
+        public string? CodeUniv { get; set; }
+        public DateTime DateCreation { get; set; } = DateTime.Now;
+        public DateTime DateUpdate { get; set; }
+
+
+        public virtual ICollection<Parcour> Parcours { get; set; } = new HashSet<Parcour>();
+    }
+}

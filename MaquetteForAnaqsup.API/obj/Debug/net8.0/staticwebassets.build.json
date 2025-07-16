@@ -1,0 +1,331 @@
+{
+  "Version": 1,
+  "Hash": "pk+G9y5VbLC0J1ckqn2xIGl9ZnZHpzJUrhIL7LxQXPE=",
+  "Source": "MaquetteForAnaqsup.API",
+  "BasePath": "_content/MaquetteForAnaqsup.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MaquetteForAnaqsup.API\\wwwroot",
+      "Source": "MaquetteForAnaqsup.API",
+      "ContentRoot": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\",
+      "BasePath": "_content/MaquetteForAnaqsup.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\Base_donnees_globale.xlsx",
+      "SourceId": "MaquetteForAnaqsup.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\",
+      "BasePath": "_content/MaquetteForAnaqsup.API",
+      "RelativePath": "UploadFile/Base_donnees_globale#[.{fingerprint}]?.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "obwhoh2dil",
+      "Integrity": "5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadFile\\Base_donnees_globale.xlsx"
+    },
+    {
+      "Identity": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\Dataset_globale.xlsx",
+      "SourceId": "MaquetteForAnaqsup.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\",
+      "BasePath": "_content/MaquetteForAnaqsup.API",
+      "RelativePath": "UploadFile/Dataset_globale#[.{fingerprint}]?.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8ersuns9kv",
+      "Integrity": "UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadFile\\Dataset_globale.xlsx"
+    },
+    {
+      "Identity": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\ImportMaquetteComplete.xlsx",
+      "SourceId": "MaquetteForAnaqsup.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\",
+      "BasePath": "_content/MaquetteForAnaqsup.API",
+      "RelativePath": "UploadFile/ImportMaquetteComplete#[.{fingerprint}]?.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kqohh3wfo7",
+      "Integrity": "fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UploadFile\\ImportMaquetteComplete.xlsx"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "UploadFile/Base_donnees_globale.obwhoh2dil.xlsx",
+      "AssetFile": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\Base_donnees_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734370"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Jul 2025 09:59:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "obwhoh2dil"
+        },
+        {
+          "Name": "label",
+          "Value": "UploadFile/Base_donnees_globale.xlsx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI="
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/Base_donnees_globale.xlsx",
+      "AssetFile": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\Base_donnees_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734370"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Jul 2025 09:59:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI="
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/Dataset_globale.8ersuns9kv.xlsx",
+      "AssetFile": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\Dataset_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "964701"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 12:29:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8ersuns9kv"
+        },
+        {
+          "Name": "label",
+          "Value": "UploadFile/Dataset_globale.xlsx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/Dataset_globale.xlsx",
+      "AssetFile": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\Dataset_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "964701"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 12:29:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/ImportMaquetteComplete.kqohh3wfo7.xlsx",
+      "AssetFile": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\ImportMaquetteComplete.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2118072"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 20:36:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kqohh3wfo7"
+        },
+        {
+          "Name": "label",
+          "Value": "UploadFile/ImportMaquetteComplete.xlsx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY="
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/ImportMaquetteComplete.xlsx",
+      "AssetFile": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\ImportMaquetteComplete.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2118072"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 20:36:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY="
+        }
+      ]
+    }
+  ]
+}

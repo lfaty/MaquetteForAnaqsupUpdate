@@ -1,0 +1,274 @@
+﻿@using MaquetteForAnaqsup.UI.Models.DTO
+@model DashboardDto
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/pagination/bootstrap.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/pagination/dataTables.bootstrap5.min.css" asp-append-version="true" />
+
+
+<div class="container-fluid">
+    @* <div class="row mt-5">
+        <section class="why-chooseus" style="padding-bottom: 50px;padding-top: 20px;">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="container">
+                    <ul class="navbar-nav bg-secondary">
+                        <li class="nav-item active">
+                            <a class="nav-link text-dark bg-warning" asp-area="" asp-controller="Dashboard" asp-action="IndexSearch">Recherche par mot clé </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="IndexSearchAdvance">Recherche avancée</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="IndexBetweenFormInterne">Comparaison des formations internes </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="IndexBetweenUniv">Comparaison des formations entre Université</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+    </div>
+ *@
+    <div class="row mt-2 mb-2">
+        <div class="col-md-12">
+            <form class="form-inline my-2 my-lg-0" asp-controller="Dashboard" asp-action="FilterSearch" style="padding-right: 25px;">
+                <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                @* <button class="btn btn-secondary text-end mt-3" type="submit"> <i>Afficher</i> </button> *@
+            </form>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-8">
+            <h4 class="text-center">FORMATIONS </h4>
+            <div class="mt-3 mb-3">
+                @for (int i = 0; i < Model.UnivForms.Count(); i++)
+                {
+                    <span class="badge bg-secondary text-dark" style="font-size: 1.2rem; margin-right: 5px;">
+                        @Model.UnivForms[i] - @Model.nbreForm[i]
+                    </span>
+                }
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Statitistiques</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive-sm">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr class="th-lg">
+                                    <th>
+                                        Université
+                                    </th>
+                                    <th>
+                                        Département
+                                    </th>
+                                    <th>
+                                        Code
+                                    </th>
+                                    <th>
+                                        Libelle
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Formations != null && Model.Formations.Any())
+                                {
+                                    @foreach (var item in Model.Formations)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodeUniv)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Departement.LibelleDepartement)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodeFormation)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LibelleFormation)
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="dt-center">
+                                            <i style='font-size:60px;color:antiquewhite' class="fas fa-folder-open"></i>
+                                            <h3 style="color:darkgoldenrod"> Aucune formation trouvée </h3>
+                                        </td>
+                                        <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                        @* <td style="display: none;"></td>
+                                        <td style="display: none;"></td> *@
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <h4 class="text-center">UNITES D'ENSEIGNEMENTS </h4>
+                    <div class="mt-3 mb-3">
+                        @for (int i = 0; i < Model.UnivUEs.Count(); i++)
+                        {
+                            <span class="badge bg-secondary text-dark" style="font-size: 1.2rem; margin-right: 5px;">
+                                @Model.UnivUEs[i] - @Model.nbreUE[i]
+                            </span>
+                        }
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive-sm">
+                                <!-- Table -->
+                                <table class="table table-hover mb-0" id="exampleA" style="width:100%">
+
+                                    <!-- Table head -->
+                                    <thead>
+                                        <tr class="th-lg">
+                                            <th>
+                                                Univ
+                                            </th>
+                                            <th>
+                                                Code
+                                            </th>
+                                            <th>
+                                                Libelle
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <!-- Table head -->
+                                    <!-- Table body -->
+                                    <tbody>
+                                        @if (Model.UniteEnseignements != null && Model.UniteEnseignements.Any())
+                                        {
+                                            @foreach (var item in Model.UniteEnseignements)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodeUniv)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodeUE)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LibelleUE)
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="5" class="dt-center">
+                                                    <i style='font-size:60px;color:antiquewhite' class="fas fa-folder-open"></i>
+                                                    <h3 style="color:darkgoldenrod"> Aune unité d'enseignement trouvée </h3>
+                                                </td>
+                                                <td style="display: none;"></td>
+                                                @* <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                    <td style="display: none;"></td> *@
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <!-- Table -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-5">
+                    <h4 class="text-center">ELEMENTS CONSTITUTIFS </h4>
+                    <div class="mt-3 mb-3">
+                        @for (int i = 0; i < Model.UnivECs.Count(); i++)
+                        {
+                            <span class="badge bg-secondary text-dark" style="font-size: 1.2rem; margin-right: 5px;">
+                                @Model.UnivECs[i] - @Model.nbreEC[i]
+                            </span>
+                        }
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive-sm">
+                                <!-- Table -->
+                                <table class="table table-hover mb-0" id="exampleA" style="width:100%">
+
+                                    <!-- Table head -->
+                                    <thead>
+                                        <tr class="th-lg">
+                                            <th>
+                                                Univ
+                                            </th>
+                                            <th>
+                                                Code
+                                            </th>
+                                            <th>
+                                                Libelle
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <!-- Table head -->
+                                    <!-- Table body -->
+                                    <tbody>
+                                        @if (Model.ElementConstitutifs != null && Model.ElementConstitutifs.Any())
+                                        {
+                                            @foreach (var item in Model.ElementConstitutifs)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodeUniv)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CodeEC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.LibelleEC)
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="5" class="dt-center">
+                                                    <i style='font-size:60px;color:antiquewhite' class="fas fa-folder-open"></i>
+                                                    <h3 style="color:darkgoldenrod"> Aune élément constitutif trouvé </h3>
+                                                </td>
+                                                <td style="display: none;"></td>
+                                                @* <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                    <td style="display: none;"></td> *@
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <!-- Table -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

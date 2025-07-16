@@ -1,0 +1,310 @@
+﻿@using MaquetteForAnaqsup.UI.Models.DTO
+@model DashboardDto
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/pagination/bootstrap.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/pagination/dataTables.bootstrap5.min.css" asp-append-version="true" />
+
+<div class="container-fluid">
+    @* <div class="row mt-5">
+        <section class="why-chooseus" style="padding-bottom: 50px;padding-top: 20px;">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <div class="container">
+                    <ul class="navbar-nav bg-secondary">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="IndexSearch">Recherche par mot clé </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-dark bg-warning" asp-area="" asp-controller="Dashboard" asp-action="IndexSearchAdvance">Recherche avancée</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="IndexBetweenFormInterne">Comparaison des formations internes </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="IndexBetweenUniv">Comparaison des formations entre Université</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+    </div>
+ *@
+    <form class="form-inline my-2 my-lg-0" asp-controller="Dashboard" asp-action="FilterSearchAdvance" style="padding-right: 25px;">
+        <div class="row mt-2 mb-2">
+            <div class="col-md-6">
+                <h3 class="text-center">Filtre générique </h3>
+                <div class="row form-group mt-3">
+                    <div class="col-sm-12">
+                        <select asp-for="CodeUniv" id="ddlIdUniv" name="CodeUniv" class="form-control form-select" asp-items="ViewBag.CodeUniv" onchange="fnSelectIdUniv()">
+                            <option>Selectionner une université ...</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="CodeUniv" class="text-danger"></span>
+                </div>
+
+                <div class="row form-group mt-3">
+                    <div class="col-md-12">
+                        <select id="ddlState" name="FaculteId" class="form-control form-select" asp-items="@(new SelectList(Model.ListFacultes,"Id", "LibelleFaculte"))" onchange="fnSelectIdFaculte()"></select>
+                    </div>
+                </div>
+
+                <div class="row form-group mt-3">
+                    <div class="col-md-12">
+                        <select id="ddlDept" name="DepartementId" class="form-control form-select" asp-items="@(new SelectList(Model.ListDepartements,"Id", "LibelleDepartement"))"></select>
+                    </div>
+                </div>
+            </div> 
+        
+            <div class="col-md-6">
+                <h3 class="text-center">Filtre détaillé </h3>
+                <div class="row form-group mt-3">
+                    <div class="col-sm-12">
+                        <div class="row form-group mt-3">
+                            <div class="col-sm-3">
+                                <select class="form-control form-select">
+                                    <option>Grade ...</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-9">
+                                <select class="form-control form-select">
+                                    <option>Formation ...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group mt-3">
+                    <div class="col-sm-12">
+                        <div class="row form-group mt-3">
+                            <div class="col-sm-6">
+                                <select class="form-control form-select">
+                                    <option>Niveau ...</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select class="form-control form-select">
+                                    <option>Semestre ...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group mt-3">
+                    <div class="col-sm-12">
+                        <div class="row form-group mt-3">
+                            <div class="col-sm-12">
+                                <select class="form-control form-select">
+                                    <option>Parcours ...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col-md-12">
+                <div>
+                    <input name="searchString" type="text" class="form-control" placeholder="Rechercher par mot clé..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col-md-12">
+                <div>
+                    <button class="btn btn-secondary text-end mt-3" type="submit"> <i>Filter</i> </button>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+
+    <div class="row mt-2 mb-2">
+        <div class="col-md-12">
+            <h3 class="text-center">STATISTIQUES GENERIQUES ET FILTREES </h3>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <h4 class="text-center">Liste des formations</h4>
+            <div class="card">
+                <div class="card-body">
+                    @* <span style="color:red"><h4 class="text-center">@TempData["Message"]</h4></span> *@
+                    <div class="table-responsive-sm">
+                        <!-- Table -->
+                        <table class="table table-hover mb-0" id="example" style="width:100%">
+
+                            <!-- Table head -->
+                            <thead>
+                                <tr class="th-lg">
+                                    <th>
+                                        Code
+                                    </th>
+                                    <th>
+                                        Libelle
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- Table head -->
+                            <!-- Table body -->
+                            <tbody>
+                                @if (Model.Formations != null && Model.Formations.Any())
+                                {
+                                    @foreach (var item in Model.Formations)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CodeFormation)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LibelleFormation)
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="dt-center">
+                                            <i style='font-size:60px;color:antiquewhite' class="fas fa-folder-open"></i>
+                                            <h3 style="color:darkgoldenrod"> Veuillez sélectionner une université pour afficher les formations </h3>
+                                        </td>
+                                        <td style="display: none;"></td>
+                                        @* <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                        <td style="display: none;"></td>
+                                    <td style="display: none;"></td> *@
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- Table -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="text-center">Statistiques</h1>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre d'universités</h4>
+                            <h1 class="text-center">@Model.TotalUnivs</h1>
+                        </div>
+                        <div class="col-md-6 ">
+                            <h4 class="text-center">Nombre de facultés</h4>
+                            <h1 class="text-center">@Model.TotalFacs</h1>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre de domaines</h4>
+                            <h1 class="text-center">@Model.TotalDomaines</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre de mentions</h4>
+                            <h1 class="text-center">@Model.TotalForms</h1>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre de spécialités</h4>
+                            <h1 class="text-center">@Model.TotalSpecialites</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre d'atome pédagogiques</h4>
+                            <h1 class="text-center">@Model.TotalAPs</h1>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre de departements</h4>
+                            <h1 class="text-center">@Model.TotalDepts</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre de formations</h4>
+                            <h1 class="text-center">@Model.TotalForms</h1>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre d'Unités d'enseignement</h4>
+                            <h1 class="text-center">@Model.TotalUEs</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-center">Nombre d'éléments constitutifs</h4>
+                            <h1 class="text-center">@Model.TotalECs</h1>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+        function fnSelectIdUniv(){
+            var StateName = $("#ddlState");
+            StateName.empty();
+
+            var DeptName = $("#ddlDept");
+            DeptName.empty();
+
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("FilterLstFaculte", "Dashboard")",
+                data: { cid: $("#ddlIdUniv").val() },
+                dataType : "json",
+                success : function(result){
+                    console.log(result);
+
+                    StateName.append(`<option value="">Selectionner une faculté / UFR ...</option>`);
+                    $.each(result.listFacultes, function (index, raj) {
+                        StateName.append(`<option value="${raj.id}">${raj.libelleFaculte}</option>`);
+                    });
+                },
+                Error:function(req, status, error){
+
+                }
+            });
+        }
+
+        function fnSelectIdFaculte(){
+            var DeptName = $("#ddlDept");
+            DeptName.empty();
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("FilterLstDepartement", "Dashboard")",
+                data: { fid: $("#ddlState").val() },
+                dataType : "json",
+                success : function(result){
+                    console.log(result);
+
+                    DeptName.append(`<option value="">Selectionner un département ...</option>`);
+                    $.each(result.listDepartements, function (index, raj) {
+                        DeptName.append(`<option value="${raj.id}">${raj.libelleDepartement}</option>`);
+                    });
+                },
+                Error:function(req, status, error){
+
+                }
+            });
+        }
+
+
+    new DataTable('#example');
+
+</script>

@@ -1,0 +1,58 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\Base_donnees_globale.xlsx'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaquetteForAnaqsup.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaquetteForAnaqsup.API</BasePath>
+      <RelativePath>UploadFile/Base_donnees_globale.xlsx</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>obwhoh2dil</Fingerprint>
+      <Integrity>5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\Base_donnees_globale.xlsx'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\Dataset_globale.xlsx'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaquetteForAnaqsup.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaquetteForAnaqsup.API</BasePath>
+      <RelativePath>UploadFile/Dataset_globale.xlsx</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>8ersuns9kv</Fingerprint>
+      <Integrity>UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\Dataset_globale.xlsx'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\ImportMaquetteComplete.xlsx'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaquetteForAnaqsup.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaquetteForAnaqsup.API</BasePath>
+      <RelativePath>UploadFile/ImportMaquetteComplete.xlsx</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>kqohh3wfo7</Fingerprint>
+      <Integrity>fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\ImportMaquetteComplete.xlsx'))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

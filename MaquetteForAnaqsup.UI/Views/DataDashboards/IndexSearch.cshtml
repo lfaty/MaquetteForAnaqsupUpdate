@@ -1,0 +1,274 @@
+﻿@using MaquetteForAnaqsup.UI.Models.DTO
+@using Newtonsoft.Json
+@model DataDashboardDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <form asp-controller="DataDashboards" asp-action="FilterByKeyWord" style="padding-right: 25px;">
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <input name="searchString" type="text" class="form-control" placeholder="Recherche par mot clé ..." aria-label="" aria-describedby="button-addon2">
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-12">
+                                <div class="form-group mt-3 text-center">
+                                    <input type="submit" name="submitButton" value="Rechercher" class="btn btn-success btn-lg p-3 mb-2" />
+                                    <input type="submit" name="submitButton" value="Annuler" class="btn btn-danger btn-lg p-3 mb-2" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- AREA CHART -->
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div class="card card-info">
+                <div class="card-header">
+                    <h1 class="card-title">@Model.LibelleViewData</h1>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="chart">
+                        <canvas id="barChart" style="min-height: 500px; height: 500px; max-height: 500px; max-width: 100%;"></canvas>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">@Model.LibelleViewData</h1>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive-sm">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Id)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeUniversite)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleUniversite)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Faculte)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Departement)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeDomaine)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleDomaine)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Mention)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Specialite)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Abreviation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleFormation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Grade)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Semestre)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Parcours)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Niveau)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CreditUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CoefUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.NatureUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeEC)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleLongEC)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CoefEC)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CM)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.TD)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.TP)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.SEM)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ImportDatas)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Id)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeUniversite)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleUniversite)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Faculte)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Departement)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeDomaine)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleDomaine)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Mention)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Specialite)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Abreviation)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleFormation)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Grade)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Semestre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Parcours)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Niveau)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreditUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CoefUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NatureUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeEC)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleLongEC)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CoefEC)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CM)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TD)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TP)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SEM)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx1 = document.getElementById('barChart');
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: @Html.Raw(JsonConvert.SerializeObject(Model.UnivECs)),
+        datasets: [{
+          label: 'Formation',
+          data: @Html.Raw(JsonConvert.SerializeObject(Model.nbreEC)),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+</script>

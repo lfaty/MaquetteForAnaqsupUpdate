@@ -1,0 +1,24 @@
+2025-07-14 15:53:16.163 +00:00 [WRN] No store type was specified for the decimal property 'CoefEC' on entity type 'ImportData'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-14 15:53:53.517 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at MaquetteForAnaqsup.API.Services.DatasService.<>c__DisplayClass4_0.<GetFormationCommuneAsync>b__15(ImportData x) in C:\Outils\DevAppsWeb\MaquetteForAnaqsup\MaquetteForAnaqsup.API\Services\DatasService.cs:line 166
+   at System.Linq.Enumerable.WhereListIterator`1.ToList()
+   at MaquetteForAnaqsup.API.Services.DatasService.GetFormationCommuneAsync(DataParameterDto dataParameter) in C:\Outils\DevAppsWeb\MaquetteForAnaqsup\MaquetteForAnaqsup.API\Services\DatasService.cs:line 166
+   at MaquetteForAnaqsup.API.Services.DatasService.GetFormationDifferenceAsync(DataParameterDto dataParameter) in C:\Outils\DevAppsWeb\MaquetteForAnaqsup\MaquetteForAnaqsup.API\Services\DatasService.cs:line 246
+   at MaquetteForAnaqsup.API.Controllers.DataProcessingsController.GetStatDataDifferente(DataParameterDto dataParameter) in C:\Outils\DevAppsWeb\MaquetteForAnaqsup\MaquetteForAnaqsup.API\Controllers\DataProcessingsController.cs:line 287
+   at lambda_method339(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)

@@ -1,0 +1,396 @@
+﻿@using MaquetteForAnaqsup.UI.Models.DTO
+@model DataDashboardDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <h3 class="text-center">Filtrer pour un résultat précis</h3>
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row mt-2 mb-2">
+                        <div class="col-md-12">
+                            <form asp-controller="DataDashboards" asp-action="FilterSearch" style="padding-right: 25px;">
+                                <div class="row mt-2 mb-2">
+                                    <div class="col-md-9">
+                                        <h3 class="text-center">Filtre générique </h3>
+                                        <div class="row form-group mt-3">
+                                            <div class="col-sm-12">
+                                                <select asp-for="CodeUniversite" id="ddlIdUniv" name="codeUniv" class="form-control form-select" asp-items="ViewBag.CodeUniversite" onchange="fnSelectIdUniv()">
+                                                    <option>Selectionner université ...</option>
+                                                </select>
+                                            </div>
+                                            <span asp-validation-for="CodeUniversite" class="text-danger"></span>
+                                        </div>
+                                        <div class="row form-group mt-3">
+                                            <div class="col-md-12">
+                                                <select id="ddlDept" name="dept" class="form-control form-select" asp-items="@(new SelectList(Model.ListDepartements,"Departement", "Departement"))" onchange="fnSelectIdDepartement()"></select>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group mt-3">
+                                            <div class="col-md-3">
+                                                <select asp-for="Grade" id="ddlGrade" name="grade" class="form-control form-select" asp-items="ViewBag.Grade" onchange="fnSelectIdGrade()">
+                                                    <option>Grade ...</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <select id="ddlForm" name="formation" class="form-control form-select" asp-items="@(new SelectList(Model.ListFormations,"Abreviation", "LibelleFormation"))" onchange="fnSelectIdFormation()"></select>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group mt-3">
+                                            <div class="col-md-3">
+                                                <select asp-for="Niveau" id="ddlNiveau" name="niveau" class="form-control form-select" asp-items="ViewBag.Niveau" onchange="fnSelectIdNiveau()">
+                                                    <option>Niveau ...</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <select id="ddlParcour" name="parcour" class="form-control form-select" asp-items="@(new SelectList(Model.ListParcours,"LibelleParcour", "LibelleParcour"))"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h3 class="text-center">Filtre détaillé </h3>
+                                        <div class="col-sm-12">
+                                            <div class="row form-group mt-3">
+                                                <div class="col-sm-6">
+                                                    <select asp-for="Semestre" name="semestre" class="form-control form-select" asp-items="ViewBag.Semestre">
+                                                        <option>Semestre ...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                @* <div class="row mt-2 mb-2">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <input name="searchString" type="text" class="form-control" placeholder="Rechercher par mot clé..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        </div>
+                                    </div>
+                                </div> *@
+                                <div class="row mt-2 mb-2">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <button class="btn btn-secondary text-end mt-3" type="submit" > <i>Filter</i> </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Filtrer pour un résultat précis</h3>
+                    <div class="row mt-2 mb-2">
+                        <div class="col-md-12">
+                            <h3 class="text-center">STATISTIQUES GENERIQUES ET FILTREES </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive-sm">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Id)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeUniversite)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleUniversite)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Faculte)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Departement)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeDomaine)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleDomaine)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Mention)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Specialite)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Abreviation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleFormation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Grade)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Semestre)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Parcours)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.Niveau)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CreditUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CoefUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.NatureUE)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CodeEC)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.LibelleLongEC)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.CoefEC)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ImportData.VolumeHoraire)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ImportDatas)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Id)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeUniversite)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleUniversite)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Faculte)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Departement)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeDomaine)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleDomaine)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Mention)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Specialite)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Abreviation)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleFormation)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Grade)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Semestre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Parcours)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Niveau)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreditUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CoefUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NatureUE)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CodeEC)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LibelleLongEC)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CoefEC)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.VolumeHoraire)
+                                        </td>
+                                       
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function fnSelectIdUniv(){
+        var DeptName = $("#ddlDept");
+        DeptName.empty();
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FilterLstDept", "DataDashboards")",
+            data: { cid: $("#ddlIdUniv").val() },
+            dataType : "json",
+            success : function(result){
+                DeptName.append(`<option value="">Selectionner un département ...</option>`);
+                $.each(result.listDepartements, function (index, raj) {
+                    DeptName.append(`<option value="${raj.departement}">${raj.departement}</option>`);
+                });
+            },
+            Error:function(req, status, error){
+
+            }
+        });
+    }
+
+    function fnSelectIdDepartement(){
+        var FormName = $("#ddlForm");
+        FormName.empty();
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FilterLstForm", "DataDashboards")",
+            data: { 
+                did: $("#ddlDept").val(),
+                cid: $("#ddlIdUniv").val()
+            },
+            dataType : "json",
+            success : function(result){
+                FormName.append(`<option value="">Selectionner une formation ...</option>`);
+                $.each(result.listFormations, function (index, raj) {
+                    FormName.append(`<option value="${raj.abreviation}">${raj.libelleFormation}</option>`);
+                });
+            },
+            Error:function(req, status, error){
+
+            }
+        });
+    }
+
+    function fnSelectIdGrade(){
+        var FormName = $("#ddlForm");
+        FormName.empty();
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FilterLstGrade", "DataDashboards")",
+            data: { 
+                gid: $("#ddlGrade").val(),
+                did: $("#ddlDept").val(),
+                cid: $("#ddlIdUniv").val()
+            },
+            dataType : "json",
+            success : function(result){
+                FormName.append(`<option value="">Selectionner une formation ...</option>`);
+                $.each(result.listFormations, function (index, raj) {
+                    FormName.append(`<option value="${raj.abreviation}">${raj.libelleFormation}</option>`);
+                });
+            },
+            Error:function(req, status, error){
+
+            }
+        });
+    }
+
+    function fnSelectIdFormation(){
+        var ParcName = $("#ddlParcour");
+        ParcName.empty();
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FilterLstParcour", "DataDashboards")",
+            data: {
+                fid: $("#ddlForm").val(),
+                gid: $("#ddlGrade").val(),
+                did: $("#ddlDept").val(),
+                cid: $("#ddlIdUniv").val()
+            },
+            dataType : "json",
+            success : function(result){
+                ParcName.append(`<option value="">Selectionner le parcour ...</option>`);
+                $.each(result.listParcours, function (index, raj) {
+                    ParcName.append(`<option value="${raj.libelleParcour}">${raj.libelleParcour}</option>`);
+                });
+            },
+            Error:function(req, status, error){
+
+            }
+        });
+
+    }
+
+    function fnSelectIdNiveau(){
+        var ParcName = $("#ddlParcour");
+        ParcName.empty();
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FilterLstNiveau", "DataDashboards")",
+            data: {
+                nid: $("#ddlNiveau").val(),
+                fid: $("#ddlForm").val(),
+                gid: $("#ddlGrade").val(),
+                did: $("#ddlDept").val(),
+                cid: $("#ddlIdUniv").val()
+            },
+            dataType : "json",
+            success : function(result){
+                ParcName.append(`<option value="">Selectionner le parcour ...</option>`);
+                $.each(result.listParcours, function (index, raj) {
+                    ParcName.append(`<option value="${raj.libelleParcour}">${raj.libelleParcour}</option>`);
+                });
+            },
+            Error:function(req, status, error){
+
+            }
+        });
+
+    }
+</script>

@@ -1,0 +1,594 @@
+[
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "FilterFormation",
+    "RelativePath": "api/Dashboards/FilterFormation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramIdFaculte",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramIdDept",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "FilterSearch",
+    "RelativePath": "api/Dashboards/FilterSearch",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllAtomePedagogique",
+    "RelativePath": "api/Dashboards/GetAllAtomePedagogique",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllData",
+    "RelativePath": "api/Dashboards/GetAllData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllDataCompleted",
+    "RelativePath": "api/Dashboards/GetAllDataCompleted",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllDepartement",
+    "RelativePath": "api/Dashboards/GetAllDepartement",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllElementConstitutif",
+    "RelativePath": "api/Dashboards/GetAllElementConstitutif",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllFaculte",
+    "RelativePath": "api/Dashboards/GetAllFaculte",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllFormation",
+    "RelativePath": "api/Dashboards/GetAllFormation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllFormationBeetwenTwoUniv",
+    "RelativePath": "api/Dashboards/GetAllFormationBeetwenTwoUniv",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv1",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramCodeUniv2",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllFormationByFac",
+    "RelativePath": "api/Dashboards/GetAllFormationByFac",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramIdFaculte",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllFormationByUniv",
+    "RelativePath": "api/Dashboards/GetAllFormationByUniv",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllGrade",
+    "RelativePath": "api/Dashboards/GetAllGrade",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllNiveau",
+    "RelativePath": "api/Dashboards/GetAllNiveau",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllParcour",
+    "RelativePath": "api/Dashboards/GetAllParcour",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllSemestre",
+    "RelativePath": "api/Dashboards/GetAllSemestre",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllUniteEnseignement",
+    "RelativePath": "api/Dashboards/GetAllUniteEnseignement",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetAllUniversite",
+    "RelativePath": "api/Dashboards/GetAllUniversite",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
+    "Method": "GetFilterDataByCodeUniv",
+    "RelativePath": "api/Dashboards/GetFilterDataByCodeUniv",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetAllData",
+    "RelativePath": "api/DataProcessings/GetAllData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetAllStatData",
+    "RelativePath": "api/DataProcessings/GetAllStatData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetAllStatDataSearch",
+    "RelativePath": "api/DataProcessings/GetAllStatDataSearch",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetDropdown",
+    "RelativePath": "api/DataProcessings/GetDropdown",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetFilterData",
+    "RelativePath": "api/DataProcessings/GetFilterData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramCodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramDept",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramGrade",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramFormation",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramNiveau",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramSemestre",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "paramParcour",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetFilterDataSearch",
+    "RelativePath": "api/DataProcessings/GetFilterDataSearch",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramLibelleEC",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatComparaisonData",
+    "RelativePath": "api/DataProcessings/GetStatComparaisonData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatDataCommune",
+    "RelativePath": "api/DataProcessings/GetStatDataCommune",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dataParameter",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.DataParameterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatDataDifferente",
+    "RelativePath": "api/DataProcessings/GetStatDataDifferente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dataParameter",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.DataParameterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatDepartementAsync",
+    "RelativePath": "api/DataProcessings/GetStatDepartementAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatElementConstitutifAsync",
+    "RelativePath": "api/DataProcessings/GetStatElementConstitutifAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatFormationAsync",
+    "RelativePath": "api/DataProcessings/GetStatFormationAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatGradeAsync",
+    "RelativePath": "api/DataProcessings/GetStatGradeAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatNiveauAsync",
+    "RelativePath": "api/DataProcessings/GetStatNiveauAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatParcourAsync",
+    "RelativePath": "api/DataProcessings/GetStatParcourAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatSemestreAsync",
+    "RelativePath": "api/DataProcessings/GetStatSemestreAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatUniteEnseignementAsync",
+    "RelativePath": "api/DataProcessings/GetStatUniteEnseignementAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
+    "Method": "GetStatUniversiteAsync",
+    "RelativePath": "api/DataProcessings/GetStatUniversiteAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.ImportDatasController",
+    "Method": "UploadFile",
+    "RelativePath": "api/ImportDatas/UploadFile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "formFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.ImportDatasController",
+    "Method": "VentileData",
+    "RelativePath": "api/ImportDatas/VentileData",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MaquetteForAnaqsup.API.WeatherForecast, MaquetteForAnaqsup.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
