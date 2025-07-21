@@ -1,0 +1,121 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MaquetteForAnaqsup.UI
+build_property.RootNamespace = MaquetteForAnaqsup.UI
+build_property.ProjectDir = C:\Outils\DevAppsWeb\MaquetteForAnaqsup\MaquetteForAnaqsup.UI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Outils\DevAppsWeb\MaquetteForAnaqsup\MaquetteForAnaqsup.UI
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Dashboard/IndexBetweenFormInterne.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4QmV0d2VlbkZvcm1JbnRlcm5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Dashboard/IndexBetweenUniv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4QmV0d2VlblVuaXYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Dashboard/IndexSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4U2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Dashboard/IndexSearchAdvance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4U2VhcmNoQWR2YW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Dashboard/IndexUeParcour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4VWVQYXJjb3VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/DataDashboards/GetStatComparaisonData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YURhc2hib2FyZHNcR2V0U3RhdENvbXBhcmFpc29uRGF0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/DataDashboards/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YURhc2hib2FyZHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/DataDashboards/IndexBetweenFormInterne.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YURhc2hib2FyZHNcSW5kZXhCZXR3ZWVuRm9ybUludGVybmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/DataDashboards/IndexSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YURhc2hib2FyZHNcSW5kZXhTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Home/GetAllElementConstitutif.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRBbGxFbGVtZW50Q29uc3RpdHV0aWYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Home/GetAllFormation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRBbGxGb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Home/GetAllParcour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRBbGxQYXJjb3VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Home/GetAllUniteEnseignement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRBbGxVbml0ZUVuc2VpZ25lbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Shared/_TopNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub3BOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Shared/_Layout - Copier.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQgLSBDb3BpZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-slrien5aio
+
+[C:/Outils/DevAppsWeb/MaquetteForAnaqsup/MaquetteForAnaqsup.UI/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-fz3qiet5ni

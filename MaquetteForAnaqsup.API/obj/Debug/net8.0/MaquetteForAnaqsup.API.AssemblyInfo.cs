@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaquetteForAnaqsup.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdd2566b77cf455e6ae81fa742a8483426bbb51c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0345ad9f96a602f1f1d74a4b7b5387522ef91308")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaquetteForAnaqsup.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaquetteForAnaqsup.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

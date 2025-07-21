@@ -562,7 +562,6 @@ namespace MaquetteForAnaqsup.API.Controllers
             return Ok(model);
         }
 
-
         #endregion
     }
 }

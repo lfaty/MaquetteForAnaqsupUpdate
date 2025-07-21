@@ -33,6 +33,12 @@ namespace MaquetteForAnaqsup.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ImportData>(entity =>
+            {
+                entity.Property(e => e.CoefEC)
+                      .HasPrecision(18, 6); // Sets precision=18, scale=6 (adjust as needed)
+            });
+
             modelBuilder.Entity<AtomeElementConstitutif>(entity =>
             {
                 entity.HasOne(d => d.ElementConstitutif)
@@ -156,7 +162,6 @@ namespace MaquetteForAnaqsup.API.Data
             //        .HasForeignKey(d => d.VilleId)
             //        .HasConstraintName("FK_Universite_Ville");
             //});
-
         }
     }
 }

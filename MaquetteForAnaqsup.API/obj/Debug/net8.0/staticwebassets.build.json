@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pk+G9y5VbLC0J1ckqn2xIGl9ZnZHpzJUrhIL7LxQXPE=",
+  "Hash": "DeVWATzQcWSjgjPvvw7FxyjosALmbgdCJO+NC45bPbU=",
   "Source": "MaquetteForAnaqsup.API",
   "BasePath": "_content/MaquetteForAnaqsup.API",
   "Mode": "Default",
@@ -186,7 +186,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Jul 2025 12:29:07 GMT"
+          "Value": "Mon, 21 Jul 2025 09:21:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -231,7 +231,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Jul 2025 12:29:07 GMT"
+          "Value": "Mon, 21 Jul 2025 09:21:48 GMT"
         },
         {
           "Name": "Cache-Control",

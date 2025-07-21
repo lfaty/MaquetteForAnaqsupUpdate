@@ -1,0 +1,252 @@
+{
+  "Version": 1,
+  "ManifestType": "Build",
+  "Endpoints": [
+    {
+      "Route": "UploadFile/Base_donnees_globale.obwhoh2dil.xlsx",
+      "AssetFile": "UploadFile/Base_donnees_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734370"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Jul 2025 09:59:03 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "obwhoh2dil"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI="
+        },
+        {
+          "Name": "label",
+          "Value": "UploadFile/Base_donnees_globale.xlsx"
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/Base_donnees_globale.xlsx",
+      "AssetFile": "UploadFile/Base_donnees_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "734370"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Jul 2025 09:59:03 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI="
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/Dataset_globale.8ersuns9kv.xlsx",
+      "AssetFile": "UploadFile/Dataset_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "964701"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 12:29:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8ersuns9kv"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="
+        },
+        {
+          "Name": "label",
+          "Value": "UploadFile/Dataset_globale.xlsx"
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/Dataset_globale.xlsx",
+      "AssetFile": "UploadFile/Dataset_globale.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "964701"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 08 Jul 2025 12:29:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/ImportMaquetteComplete.kqohh3wfo7.xlsx",
+      "AssetFile": "UploadFile/ImportMaquetteComplete.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2118072"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 20:36:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kqohh3wfo7"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY="
+        },
+        {
+          "Name": "label",
+          "Value": "UploadFile/ImportMaquetteComplete.xlsx"
+        }
+      ]
+    },
+    {
+      "Route": "UploadFile/ImportMaquetteComplete.xlsx",
+      "AssetFile": "UploadFile/ImportMaquetteComplete.xlsx",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2118072"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 20:36:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fPR753Pd2R9tpC0eJfuVme+OcjscbpdCdJuufbiRWwY="
+        }
+      ]
+    }
+  ]
+}

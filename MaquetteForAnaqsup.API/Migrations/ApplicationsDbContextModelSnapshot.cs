@@ -49,7 +49,8 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("CoefEC")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(18, 6)
+                        .HasColumnType("decimal(18,6)");
 
                     b.Property<int?>("CoefUE")
                         .HasColumnType("int");

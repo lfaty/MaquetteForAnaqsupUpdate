@@ -11,6 +11,8 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
+
 //Boost Performance with Caching
 builder.Services.AddResponseCaching();
 
@@ -88,12 +90,16 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
@@ -114,5 +120,10 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.MapControllers();
+
+Console.WriteLine("App Start");
+
+app.MapControllers();
+
 
 app.Run();
