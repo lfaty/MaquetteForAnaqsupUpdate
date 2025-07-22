@@ -9,6 +9,7 @@ namespace MaquetteForAnaqsup.API.Models.Domain
         public string? LibelleDepartement { get; set; }
         public Guid? FaculteId { get; set; }
         public string? CodeUniv { get; set; }
+        public string? Annee { get; set; }
         public DateTime? CreateDate { get; set; } = DateTime.UtcNow;
         public DateTime? UpdateDate { get; set; }
         public virtual Faculte Faculte { get; set; }

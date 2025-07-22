@@ -5,6 +5,26 @@
       "PackagePath": "staticwebassets\\MaquetteForAnaqsup.UI.cqlrfbztdp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.UI\\wwwroot\\Image\\avatar2.png",
+      "PackagePath": "staticwebassets\\Image\\avatar2.png"
+    },
+    {
+      "Id": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.UI\\wwwroot\\Image\\avatar3.png",
+      "PackagePath": "staticwebassets\\Image\\avatar3.png"
+    },
+    {
+      "Id": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.UI\\wwwroot\\Image\\avatar4.png",
+      "PackagePath": "staticwebassets\\Image\\avatar4.png"
+    },
+    {
+      "Id": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.UI\\wwwroot\\Image\\avatar5.png",
+      "PackagePath": "staticwebassets\\Image\\avatar5.png"
+    },
+    {
+      "Id": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.UI\\wwwroot\\Image\\logo_anaq.png",
+      "PackagePath": "staticwebassets\\Image\\logo_anaq.png"
+    },
+    {
       "Id": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.UI\\wwwroot\\build\\config\\.eslintrc.json",
       "PackagePath": "staticwebassets\\build\\config\\.eslintrc.json"
     },

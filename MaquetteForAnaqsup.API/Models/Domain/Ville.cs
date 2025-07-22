@@ -8,6 +8,7 @@ namespace MaquetteForAnaqsup.API.Models.Domain
         public string? CodeVille { get; set; }
         public string? NomVille { get; set; }
         public string? CodeUniv { get; set; }
+        public string? Annee { get; set; }
         public DateTime DateCreation { get; set; } = DateTime.Now;
         public DateTime DateUpdate { get; set; }
 

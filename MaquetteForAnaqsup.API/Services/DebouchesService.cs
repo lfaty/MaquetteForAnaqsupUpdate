@@ -10,21 +10,6 @@ namespace MaquetteForAnaqsup.API.Services
         private readonly ApplicationsDbContext _context;
         public DebouchesService(ApplicationsDbContext context) : base(context)
         {
-            _context = context;
-        }
-
-        public async Task<Debouche> GetByIdDetail(Guid id)
-        {
-            return await _context.Debouches
-                .Include(f => f.Formation)
-                .FirstOrDefaultAsync(m => m.Id == id);
-        }
-
-        public async Task<Debouche> GetByIdFormation(Guid idFormation)
-        {
-            return await _context.Debouches
-                .Include(f => f.Formation)
-                .FirstOrDefaultAsync(m => m.FormationId == idFormation);
         }
     }
 }

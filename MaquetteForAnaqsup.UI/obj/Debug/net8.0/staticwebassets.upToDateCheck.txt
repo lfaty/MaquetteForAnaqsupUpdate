@@ -184,6 +184,11 @@ wwwroot\dist\js\pages\dashboard.js
 wwwroot\dist\js\pages\dashboard2.js
 wwwroot\dist\js\pages\dashboard3.js
 wwwroot\favicon.ico
+wwwroot\Image\avatar2.png
+wwwroot\Image\avatar3.png
+wwwroot\Image\avatar4.png
+wwwroot\Image\avatar5.png
+wwwroot\Image\logo_anaq.png
 wwwroot\js\Pagination\dataTables.bootstrap5.min.js
 wwwroot\js\Pagination\jquery.dataTables.min.js
 wwwroot\js\Pagination\jquery-3.7.0.js

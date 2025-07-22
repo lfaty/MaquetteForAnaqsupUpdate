@@ -7,6 +7,7 @@ namespace MaquetteForAnaqsup.API.Models.Domain
         public Guid Id { get; set; }
         public string? LibelleGrade { get; set; }
         public string? CodeUniv { get; set; }
+        public string? Annee { get; set; }
         public DateTime DateCreation { get; set; } = DateTime.Now;
         public DateTime DateUpdate { get; set; }
 

@@ -11,8 +11,25 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <form asp-controller="DataDashboards" asp-action="FilterByKeyWord" style="padding-right: 25px;">
-                        <div class="row mt-2 mb-2">
+                    @* <form asp-controller="DataDashboards" asp-action="FilterByKeyWord" style="padding-right: 25px;"> *@
+
+                        <h2 class="text-center display-4">Filtrer pour améliorer le résultat</h2>
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <form asp-controller="DataDashboards" asp-action="FilterByKeyWord">
+                                    <div class="input-group">
+                                    <input name="searchString" type="search" class="form-control form-control-lg" placeholder="Rechercher par mot clés">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-lg btn-default">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        @* <div class="row mt-2 mb-2">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
                                 <input name="searchString" type="text" class="form-control" placeholder="Recherche par mot clé ..." aria-label="" aria-describedby="button-addon2">
@@ -27,7 +44,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </form> *@
                 </div>
             </div>
         </div>

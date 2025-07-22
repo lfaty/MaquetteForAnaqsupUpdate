@@ -9,6 +9,9 @@ namespace MaquetteForAnaqsup.API.Data
         {
         }
         public virtual DbSet<ImportData> ImportDatas { get; set; }
+
+        public virtual DbSet<AnneeMaquette> AnneeMaquettes { get; set; }
+        public virtual DbSet<UniversiteUser> UniversiteUsers { get; set; }
         public virtual DbSet<AtomeElementConstitutif> AtomeElementConstitutifs { get; set; }
         public virtual DbSet<AtomePedagogique> AtomePedagogiques { get; set; }
         public virtual DbSet<NatureUniteEnseignement> NatureUniteEnseignements { get; set; }
@@ -24,6 +27,7 @@ namespace MaquetteForAnaqsup.API.Data
         public virtual DbSet<Domaine> Domaines { get; set; }
         public virtual DbSet<ElementConstitutif> ElementConstitutifs { get; set; }
         public virtual DbSet<Formation> Formations { get; set; }
+        public virtual DbSet<FormationDebouche> FormationDebouches { get; set; }
         public virtual DbSet<Mention> Mentions { get; set; }
         public virtual DbSet<Parcour> Parcours { get; set; }
         public virtual DbSet<Specialite> Specialites { get; set; }
@@ -65,12 +69,17 @@ namespace MaquetteForAnaqsup.API.Data
                     .HasConstraintName("FK_ParcourUniteEnseignement_UniteEnseignement");
             });
 
-            modelBuilder.Entity<Debouche>(entity =>
+            modelBuilder.Entity<FormationDebouche>(entity =>
             {
                 entity.HasOne(d => d.Formation)
-                    .WithMany(p => p.Debouches)
+                    .WithMany(p => p.FormationDebouches)
                     .HasForeignKey(d => d.FormationId)
-                    .HasConstraintName("FK_Debouche_Formation");
+                    .HasConstraintName("FK_FormationDebouche_Formation");
+
+                entity.HasOne(d => d.Debouche)
+                    .WithMany(p => p.FormationDebouches)
+                    .HasForeignKey(d => d.DeboucheId)
+                    .HasConstraintName("FK_FormationDebouche_Debouche");
             });
 
             modelBuilder.Entity<Departement>(entity =>

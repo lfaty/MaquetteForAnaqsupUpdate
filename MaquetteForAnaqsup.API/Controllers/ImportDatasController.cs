@@ -184,280 +184,280 @@ namespace MaquetteForAnaqsup.API.Controllers
         }
 
 
-        //[HttpGet]
-        [HttpPost]
-        [Route("VentileData")]
-        public async Task<IActionResult> VentileData()
-        {
-            var maquetteDatas = _context.ImportDatas.ToList();
-            if (maquetteDatas.Count() <= 0) return null;
+        ////[HttpGet]
+        //[HttpPost]
+        //[Route("VentileData")]
+        //public async Task<IActionResult> VentileData()
+        //{
+        //    var maquetteDatas = _context.ImportDatas.ToList();
+        //    if (maquetteDatas.Count() <= 0) return null;
 
-            string codeUniv = null;
+        //    string codeUniv = null;
 
-            foreach (var item in maquetteDatas)
-            {
-                // Add Universite Informations
-                var lstUniversites = await _serviceUniversite.GetAllAsync();
-                var universite = lstUniversites.Where(x => x.CodeUniv == item.CodeUniversite).FirstOrDefault();
-                if (universite != null)
-                {
-                    codeUniv = item.CodeUniversite;
-                }
-                else
-                {
-                    Universite model = new Universite();
-                    model.CodeUniv = item.CodeUniversite;
-                    model.NomUniversite = item.LibelleUniversite;
-                    codeUniv = item.CodeUniversite;
-                    await _serviceUniversite.AddAsync(model);
-                }
-
-
-                // Add Faculte Informations
-                var faculteData = new Faculte();
-                var lstFacultes = await _serviceFalcute.GetAllAsync(codeUniv);
-                var faculte = lstFacultes.Where(x => x.LibelleFaculte == item.Faculte).FirstOrDefault();
-                if (faculte != null) { faculteData = faculte; }
-                else
-                {
-                    Faculte model = new Faculte();
-                    model.CodeUniv = codeUniv;
-                    model.LibelleFaculte = item.Faculte;
-                    faculteData = await _serviceFalcute.AddAsync(model);
-                }
+        //    foreach (var item in maquetteDatas)
+        //    {
+        //        // Add Universite Informations
+        //        var lstUniversites = await _serviceUniversite.GetAllAsync();
+        //        var universite = lstUniversites.Where(x => x.CodeUniv == item.CodeUniversite).FirstOrDefault();
+        //        if (universite != null)
+        //        {
+        //            codeUniv = item.CodeUniversite;
+        //        }
+        //        else
+        //        {
+        //            Universite model = new Universite();
+        //            model.CodeUniv = item.CodeUniversite;
+        //            model.NomUniversite = item.LibelleUniversite;
+        //            codeUniv = item.CodeUniversite;
+        //            await _serviceUniversite.AddAsync(model);
+        //        }
 
 
-                // Add Departement Informations
-                var departementData = new Departement();
-                var lstDepartements = await _serviceDepartement.GetAllAsync(codeUniv, f => f.Faculte);
-                var departement = lstDepartements.Where(x => x.LibelleDepartement == item.Departement).FirstOrDefault();
-                if (departement != null) { departementData = departement; }
-                else
-                {
-                    Departement model = new Departement();
-                    model.CodeUniv = codeUniv;
-                    model.LibelleDepartement = item.Departement;
-                    model.FaculteId = faculteData.Id;
-                    departementData = await _serviceDepartement.AddAsync(model);
-                }
+        //        // Add Faculte Informations
+        //        var faculteData = new Faculte();
+        //        var lstFacultes = await _serviceFalcute.GetAllAsync(codeUniv);
+        //        var faculte = lstFacultes.Where(x => x.LibelleFaculte == item.Faculte).FirstOrDefault();
+        //        if (faculte != null) { faculteData = faculte; }
+        //        else
+        //        {
+        //            Faculte model = new Faculte();
+        //            model.CodeUniv = codeUniv;
+        //            model.LibelleFaculte = item.Faculte;
+        //            faculteData = await _serviceFalcute.AddAsync(model);
+        //        }
 
 
-                // Add Domaine Informations
-                var domaineData = new Domaine();
-                var lstDomaines = await _serviceDomaine.GetAllAsync(codeUniv);
-                var domaine = lstDomaines.Where(x => x.CodeDomaine == item.CodeDomaine).FirstOrDefault();
-                if (domaine != null) { domaineData = domaine; }
-                else
-                {
-                    Domaine model = new Domaine();
-                    model.CodeUniv = codeUniv;
-                    model.CodeDomaine = item.CodeDomaine;
-                    model.LibelleDomaine = item.LibelleDomaine;
-                    domaineData = await _serviceDomaine.AddAsync(model);
-                }
+        //        // Add Departement Informations
+        //        var departementData = new Departement();
+        //        var lstDepartements = await _serviceDepartement.GetAllAsync(codeUniv, f => f.Faculte);
+        //        var departement = lstDepartements.Where(x => x.LibelleDepartement == item.Departement).FirstOrDefault();
+        //        if (departement != null) { departementData = departement; }
+        //        else
+        //        {
+        //            Departement model = new Departement();
+        //            model.CodeUniv = codeUniv;
+        //            model.LibelleDepartement = item.Departement;
+        //            model.FaculteId = faculteData.Id;
+        //            departementData = await _serviceDepartement.AddAsync(model);
+        //        }
 
 
-                // Add Mention Informations
-                var mentionData = new Mention();
-                var lstMentions = await _serviceMention.GetAllAsync(codeUniv, d => d.Domaine);
-                var mention = lstMentions.Where(x => x.LibelleMention == item.Mention).FirstOrDefault();
-                if (mention != null) { mentionData = mention; }
-                else
-                {
-                    Mention model = new Mention();
-                    model.CodeUniv = codeUniv;
-                    model.LibelleMention = item.Mention;
-                    model.DomaineId = domaineData.Id;
-                    mentionData = await _serviceMention.AddAsync(model);
-                }
+        //        // Add Domaine Informations
+        //        var domaineData = new Domaine();
+        //        var lstDomaines = await _serviceDomaine.GetAllAsync(codeUniv);
+        //        var domaine = lstDomaines.Where(x => x.CodeDomaine == item.CodeDomaine).FirstOrDefault();
+        //        if (domaine != null) { domaineData = domaine; }
+        //        else
+        //        {
+        //            Domaine model = new Domaine();
+        //            model.CodeUniv = codeUniv;
+        //            model.CodeDomaine = item.CodeDomaine;
+        //            model.LibelleDomaine = item.LibelleDomaine;
+        //            domaineData = await _serviceDomaine.AddAsync(model);
+        //        }
 
 
-                // Add Specialite Informations
-                var specialiteData = new Specialite();
-                var lstSpecialites = await _serviceSpecialite.GetAllAsync(codeUniv, m => m.Mention);
-                var specialite = lstSpecialites.Where(x => x.LibelleSpecialite == item.Specialite).FirstOrDefault();
-                if (specialite != null) { specialiteData = specialite; }
-                else
-                {
-                    Specialite model = new Specialite();
-                    model.CodeUniv = codeUniv;
-                    model.LibelleSpecialite = item.Specialite;
-                    model.MentionId = mentionData.Id;
-                    specialiteData = await _serviceSpecialite.AddAsync(model);
-                }
+        //        // Add Mention Informations
+        //        var mentionData = new Mention();
+        //        var lstMentions = await _serviceMention.GetAllAsync(codeUniv, d => d.Domaine);
+        //        var mention = lstMentions.Where(x => x.LibelleMention == item.Mention).FirstOrDefault();
+        //        if (mention != null) { mentionData = mention; }
+        //        else
+        //        {
+        //            Mention model = new Mention();
+        //            model.CodeUniv = codeUniv;
+        //            model.LibelleMention = item.Mention;
+        //            model.DomaineId = domaineData.Id;
+        //            mentionData = await _serviceMention.AddAsync(model);
+        //        }
 
 
-                // Add Grade Informations
-                var gradeData = new Grade();
-                var lstGrades = await _serviceGrade.GetAllAsync();
-                var grade = lstGrades.Where(x => x.LibelleGrade == item.Grade).FirstOrDefault();
-                if (grade != null) { gradeData = grade; }
-                else
-                {
-                    Grade model = new Grade();
-                    model.CodeUniv = codeUniv;
-                    model.LibelleGrade = item.Grade;
-                    gradeData = await _serviceGrade.AddAsync(model);
-                }
-
-                // Add Niveau Informations
-                var niveauData = new Niveau();
-                var lstNiveaus = await _serviceNiveau.GetAllAsync();
-                var niveau = lstNiveaus.Where(x => x.NumNiveau == item.Niveau).FirstOrDefault();
-                if (niveau != null) { niveauData = niveau; }
-                else
-                {
-                    Niveau model = new Niveau();
-                    model.CodeUniv = codeUniv;
-                    model.NumNiveau = item.Niveau;
-                    niveauData = await _serviceNiveau.AddAsync(model);
-                }
-
-                // Add Semestre Informations
-                var semestreData = new Semestre();
-                var lstSemestres = await _serviceSemestre.GetAllAsync();
-                var semestre = lstSemestres.Where(x => x.NumSemestre == item.Semestre).FirstOrDefault();
-                if (semestre != null) { semestreData = semestre; }
-                else
-                {
-                    Semestre model = new Semestre();
-                    model.CodeUniv = codeUniv;
-                    model.NumSemestre = item.Semestre;
-                    semestreData = await _serviceSemestre.AddAsync(model);
-                }
-
-                // Add AP Informations
-                //var apData = new AtomePedagogique();
-                //var lstAps = await _serviceAtomePedagogique.GetAllAsync(codeUniv);
-                //var ap = lstAps.Where(x => x.LibelleAP == item.AtomePedagogique).FirstOrDefault();
-                //if (ap != null) { apData = ap; }
-                //else
-                //{
-                //    AtomePedagogique model = new AtomePedagogique();
-                //    model.CodeUniv = codeUniv;
-                //    model.LibelleAP = item.AtomePedagogique;
-                //    apData = await _serviceAtomePedagogique.AddAsync(model);
-                //}
-
-                // Add NatureUE Informations
-                var natureUEData = new NatureUniteEnseignement();
-                var lstNatures = await _serviceNatureUE.GetAllAsync();
-                var nature = lstNatures.Where(x => x.LibelleNature == item.NatureUE).FirstOrDefault();
-                if (nature != null) { natureUEData = nature; }
-                else
-                {
-                    NatureUniteEnseignement model = new NatureUniteEnseignement();
-                    model.CodeUniv = codeUniv;
-                    model.LibelleNature = item.NatureUE;
-                    natureUEData = await _serviceNatureUE.AddAsync(model);
-                }
-
-                // Add UE Informations
-                var ueData = new UniteEnseignement();
-                var lstUEs = await _serviceUniteEnseignement.GetAllAsync(codeUniv);
-                var ue = lstUEs.Where(x => x.LibelleUE == item.LibelleUE).FirstOrDefault();
-                if (ue != null) { ueData = ue; }
-                else
-                {
-                    UniteEnseignement model = new UniteEnseignement();
-                    model.CodeUniv = codeUniv;
-                    model.CodeUE = item.CodeUE;
-                    model.LibelleUE = item.LibelleUE;
-                    model.NatureUniteEnseignementId = natureUEData.Id;
-                    model.CreditUE = item.CreditUE;
-                    model.CoefUE = item.CoefUE;
-                    ueData = await _serviceUniteEnseignement.AddAsync(model);
-                }
-
-                // Add EC Informations
-                var ecData = new ElementConstitutif();
-                var lstECs = await _serviceElementConstitutif.GetAllAsync(codeUniv);
-                var ec = lstECs.Where(x => x.LibelleEC == item.LibelleLongEC).FirstOrDefault();
-                if (ec != null) { ecData = ec; }
-                else
-                {
-                    ElementConstitutif model = new ElementConstitutif();
-                    model.CodeUniv = codeUniv;
-                    model.UniteEnseignementId = ueData.Id;
-                    model.LibelleEC = item.LibelleLongEC;
-                    model.CodeEC = item.CodeEC;
-                    ecData = await _serviceElementConstitutif.AddAsync(model);
-                }
+        //        // Add Specialite Informations
+        //        var specialiteData = new Specialite();
+        //        var lstSpecialites = await _serviceSpecialite.GetAllAsync(codeUniv, m => m.Mention);
+        //        var specialite = lstSpecialites.Where(x => x.LibelleSpecialite == item.Specialite).FirstOrDefault();
+        //        if (specialite != null) { specialiteData = specialite; }
+        //        else
+        //        {
+        //            Specialite model = new Specialite();
+        //            model.CodeUniv = codeUniv;
+        //            model.LibelleSpecialite = item.Specialite;
+        //            model.MentionId = mentionData.Id;
+        //            specialiteData = await _serviceSpecialite.AddAsync(model);
+        //        }
 
 
-                // Add Formation Informations
-                var formationData = new Formation();
-                var lstFormations = await _serviceFormation.GetAllAsync(codeUniv, m => m.Departement);
-                var formation = lstFormations.Where(x => x.CodeFormation == item.Abreviation).FirstOrDefault();
-                if (formation != null) { formationData = formation; }
-                else
-                {
-                    Formation model = new Formation();
-                    model.CodeUniv = codeUniv;
-                    model.CodeFormation = item.Abreviation;
-                    model.LibelleFormation = item.LibelleFormation;
-                    model.DepartementId = departementData.Id;
-                    model.MentionId = mentionData.Id;
-                    model.SpecialiteId = specialiteData.Id;
-                    model.GradeId = gradeData.Id;
+        //        // Add Grade Informations
+        //        var gradeData = new Grade();
+        //        var lstGrades = await _serviceGrade.GetAllAsync();
+        //        var grade = lstGrades.Where(x => x.LibelleGrade == item.Grade).FirstOrDefault();
+        //        if (grade != null) { gradeData = grade; }
+        //        else
+        //        {
+        //            Grade model = new Grade();
+        //            model.CodeUniv = codeUniv;
+        //            model.LibelleGrade = item.Grade;
+        //            gradeData = await _serviceGrade.AddAsync(model);
+        //        }
 
-                    formationData = await _serviceFormation.AddAsync(model);
-                }
+        //        // Add Niveau Informations
+        //        var niveauData = new Niveau();
+        //        var lstNiveaus = await _serviceNiveau.GetAllAsync();
+        //        var niveau = lstNiveaus.Where(x => x.NumNiveau == item.Niveau).FirstOrDefault();
+        //        if (niveau != null) { niveauData = niveau; }
+        //        else
+        //        {
+        //            Niveau model = new Niveau();
+        //            model.CodeUniv = codeUniv;
+        //            model.NumNiveau = item.Niveau;
+        //            niveauData = await _serviceNiveau.AddAsync(model);
+        //        }
+
+        //        // Add Semestre Informations
+        //        var semestreData = new Semestre();
+        //        var lstSemestres = await _serviceSemestre.GetAllAsync();
+        //        var semestre = lstSemestres.Where(x => x.NumSemestre == item.Semestre).FirstOrDefault();
+        //        if (semestre != null) { semestreData = semestre; }
+        //        else
+        //        {
+        //            Semestre model = new Semestre();
+        //            model.CodeUniv = codeUniv;
+        //            model.NumSemestre = item.Semestre;
+        //            semestreData = await _serviceSemestre.AddAsync(model);
+        //        }
+
+        //        // Add AP Informations
+        //        //var apData = new AtomePedagogique();
+        //        //var lstAps = await _serviceAtomePedagogique.GetAllAsync(codeUniv);
+        //        //var ap = lstAps.Where(x => x.LibelleAP == item.AtomePedagogique).FirstOrDefault();
+        //        //if (ap != null) { apData = ap; }
+        //        //else
+        //        //{
+        //        //    AtomePedagogique model = new AtomePedagogique();
+        //        //    model.CodeUniv = codeUniv;
+        //        //    model.LibelleAP = item.AtomePedagogique;
+        //        //    apData = await _serviceAtomePedagogique.AddAsync(model);
+        //        //}
+
+        //        // Add NatureUE Informations
+        //        var natureUEData = new NatureUniteEnseignement();
+        //        var lstNatures = await _serviceNatureUE.GetAllAsync();
+        //        var nature = lstNatures.Where(x => x.LibelleNature == item.NatureUE).FirstOrDefault();
+        //        if (nature != null) { natureUEData = nature; }
+        //        else
+        //        {
+        //            NatureUniteEnseignement model = new NatureUniteEnseignement();
+        //            model.CodeUniv = codeUniv;
+        //            model.LibelleNature = item.NatureUE;
+        //            natureUEData = await _serviceNatureUE.AddAsync(model);
+        //        }
+
+        //        // Add UE Informations
+        //        var ueData = new UniteEnseignement();
+        //        var lstUEs = await _serviceUniteEnseignement.GetAllAsync(codeUniv);
+        //        var ue = lstUEs.Where(x => x.LibelleUE == item.LibelleUE).FirstOrDefault();
+        //        if (ue != null) { ueData = ue; }
+        //        else
+        //        {
+        //            UniteEnseignement model = new UniteEnseignement();
+        //            model.CodeUniv = codeUniv;
+        //            model.CodeUE = item.CodeUE;
+        //            model.LibelleUE = item.LibelleUE;
+        //            model.NatureUniteEnseignementId = natureUEData.Id;
+        //            model.CreditUE = item.CreditUE;
+        //            model.CoefUE = item.CoefUE;
+        //            ueData = await _serviceUniteEnseignement.AddAsync(model);
+        //        }
+
+        //        // Add EC Informations
+        //        var ecData = new ElementConstitutif();
+        //        var lstECs = await _serviceElementConstitutif.GetAllAsync(codeUniv);
+        //        var ec = lstECs.Where(x => x.LibelleEC == item.LibelleLongEC).FirstOrDefault();
+        //        if (ec != null) { ecData = ec; }
+        //        else
+        //        {
+        //            ElementConstitutif model = new ElementConstitutif();
+        //            model.CodeUniv = codeUniv;
+        //            model.UniteEnseignementId = ueData.Id;
+        //            model.LibelleEC = item.LibelleLongEC;
+        //            model.CodeEC = item.CodeEC;
+        //            ecData = await _serviceElementConstitutif.AddAsync(model);
+        //        }
 
 
-                // Add Parcour Informations
-                var parcourData = new Parcour();
-                var lstParcours = await _serviceParcour.GetAllAsync(codeUniv, f => f.Formation, n => n.Niveau, s => s.Semestre);
-                var parcour = lstParcours.Where(x => x.LibelleParcour == item.Parcours).FirstOrDefault();
-                if (parcour != null) { parcourData = parcour; }
-                else
-                {
-                    Parcour model = new Parcour();
-                    model.CodeUniv = codeUniv;
-                    model.FormationId = formationData.Id;
-                    model.NiveauId = niveauData.Id;
-                    model.SemestreId = semestreData.Id;
-                    model.LibelleParcour = item.Parcours;
-                    parcourData = await _serviceParcour.AddAsync(model);
-                }
+        //        // Add Formation Informations
+        //        var formationData = new Formation();
+        //        var lstFormations = await _serviceFormation.GetAllAsync(codeUniv, m => m.Departement);
+        //        var formation = lstFormations.Where(x => x.CodeFormation == item.Abreviation).FirstOrDefault();
+        //        if (formation != null) { formationData = formation; }
+        //        else
+        //        {
+        //            Formation model = new Formation();
+        //            model.CodeUniv = codeUniv;
+        //            model.CodeFormation = item.Abreviation;
+        //            model.LibelleFormation = item.LibelleFormation;
+        //            model.DepartementId = departementData.Id;
+        //            model.MentionId = mentionData.Id;
+        //            model.SpecialiteId = specialiteData.Id;
+        //            model.GradeId = gradeData.Id;
 
-                // Add UeParcour Informations
-                var lstUeParcours = await _serviceUeParcour.GetAllAsync(codeUniv, f => f.UniteEnseignement, n => n.Parcour);
-                var ueParcour = lstUeParcours.Where(x => x.UniteEnseignementId == ueData.Id & x.ParcourId == parcourData.Id).FirstOrDefault();
-                if (ueParcour != null)
-                {
-                    continue;
-                }
-                else
-                {
-                    ParcourUniteEnseignement apemodel = new ParcourUniteEnseignement();
-                    apemodel.CodeUniv = codeUniv;
-                    apemodel.UniteEnseignementId = ueData.Id;
-                    apemodel.ParcourId = parcourData.Id;
-                    await _serviceUeParcour.AddAsync(apemodel);
-                }
+        //            formationData = await _serviceFormation.AddAsync(model);
+        //        }
 
 
-                // Add AtomeParcourEc Informations
-                //var lstAtomeECs = await _serviceAtomeParcour.GetAllAsync(codeUniv, n => n.ElementConstitutif, s => s.AtomePedagogique);
-                //var atomeParcour = lstAtomeECs.Where(x => x.ElementConstitutifId == ecData.Id & x.AtomePedagogiqueId == apData.Id).FirstOrDefault();
-                //if (atomeParcour != null)
-                //{
-                //    continue;
-                //}
-                //else
-                //{
-                //    AtomeElementConstitutif apemodel = new AtomeElementConstitutif();
-                //    apemodel.CodeUniv = codeUniv;
-                //    apemodel.ElementConstitutifId = ecData.Id;
-                //    //apemodel.AtomePedagogiqueId = apData.Id;
-                //    //apemodel.VolumeHoraire = item.VolumeHoraire;
-                //    await _serviceAtomeParcour.AddAsync(apemodel);
-                //}
-            }
+        //        // Add Parcour Informations
+        //        var parcourData = new Parcour();
+        //        var lstParcours = await _serviceParcour.GetAllAsync(codeUniv, f => f.Formation, n => n.Niveau, s => s.Semestre);
+        //        var parcour = lstParcours.Where(x => x.LibelleParcour == item.Parcours).FirstOrDefault();
+        //        if (parcour != null) { parcourData = parcour; }
+        //        else
+        //        {
+        //            Parcour model = new Parcour();
+        //            model.CodeUniv = codeUniv;
+        //            model.FormationId = formationData.Id;
+        //            model.NiveauId = niveauData.Id;
+        //            model.SemestreId = semestreData.Id;
+        //            model.LibelleParcour = item.Parcours;
+        //            parcourData = await _serviceParcour.AddAsync(model);
+        //        }
 
-            return Ok("Data Insert Success !");
-        }
+        //        // Add UeParcour Informations
+        //        var lstUeParcours = await _serviceUeParcour.GetAllAsync(codeUniv, f => f.UniteEnseignement, n => n.Parcour);
+        //        var ueParcour = lstUeParcours.Where(x => x.UniteEnseignementId == ueData.Id & x.ParcourId == parcourData.Id).FirstOrDefault();
+        //        if (ueParcour != null)
+        //        {
+        //            continue;
+        //        }
+        //        else
+        //        {
+        //            ParcourUniteEnseignement apemodel = new ParcourUniteEnseignement();
+        //            apemodel.CodeUniv = codeUniv;
+        //            apemodel.UniteEnseignementId = ueData.Id;
+        //            apemodel.ParcourId = parcourData.Id;
+        //            await _serviceUeParcour.AddAsync(apemodel);
+        //        }
+
+
+        //        // Add AtomeParcourEc Informations
+        //        //var lstAtomeECs = await _serviceAtomeParcour.GetAllAsync(codeUniv, n => n.ElementConstitutif, s => s.AtomePedagogique);
+        //        //var atomeParcour = lstAtomeECs.Where(x => x.ElementConstitutifId == ecData.Id & x.AtomePedagogiqueId == apData.Id).FirstOrDefault();
+        //        //if (atomeParcour != null)
+        //        //{
+        //        //    continue;
+        //        //}
+        //        //else
+        //        //{
+        //        //    AtomeElementConstitutif apemodel = new AtomeElementConstitutif();
+        //        //    apemodel.CodeUniv = codeUniv;
+        //        //    apemodel.ElementConstitutifId = ecData.Id;
+        //        //    //apemodel.AtomePedagogiqueId = apData.Id;
+        //        //    //apemodel.VolumeHoraire = item.VolumeHoraire;
+        //        //    await _serviceAtomeParcour.AddAsync(apemodel);
+        //        //}
+        //    }
+
+        //    return Ok("Data Insert Success !");
+        //}
 
     }
 }

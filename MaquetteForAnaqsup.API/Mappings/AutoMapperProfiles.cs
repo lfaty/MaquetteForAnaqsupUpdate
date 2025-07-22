@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MaquetteForAnaqsup.API.Identity.DTO;
 using MaquetteForAnaqsup.API.Models.Domain;
 using MaquetteForAnaqsup.API.Models.DTO;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,21 @@ namespace MaquetteForAnaqsup.API.Mappings
     {
         public AutoMapperProfiles()
         {
+            // User Mapping
+            CreateMap<IdentityUser, UserDto>().ReverseMap();
+            CreateMap<IdentityRole, RoleDto>().ReverseMap();
+            CreateMap<IdentityRole, AddRoleDto>().ReverseMap();
+
+            CreateMap<AnneeMaquette, AnneeMaquetteDto>().ReverseMap();
+            CreateMap<AnneeMaquette, AddAnneeMaquetteDto>().ReverseMap();
+            CreateMap<AnneeMaquette, UpdateAnneeMaquetteDto>().ReverseMap();
+            CreateMap<AnneeMaquette, StatutDto>().ReverseMap();
+
+            CreateMap<UniversiteUser, UniversiteUserDto>().ReverseMap();
+            CreateMap<UniversiteUser, AddUniversiteUserDto>().ReverseMap();
+            CreateMap<UniversiteUser, UpdateUniversiteUserDto>().ReverseMap();
+            CreateMap<UniversiteUser, StatutDto>().ReverseMap();
+
             //DataProcessing Mapping
             CreateMap<ImportData, ImportDataDto>().ReverseMap();
             CreateMap<ImportData, DataFormationDto>().ReverseMap();

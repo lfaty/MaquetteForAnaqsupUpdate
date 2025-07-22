@@ -38,30 +38,41 @@ namespace MaquetteForAnaqsup.API.Base
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(string? filterUniv = null)
+        public async Task<IEnumerable<T>> GetAllAsync(string? filterUniv = null, string? filterAnnee = null)
         {
             var datas = await _context.Set<T>().ToListAsync();
 
-            // Filtering
+            // Filtering Universities
             if (string.IsNullOrWhiteSpace(filterUniv) == false)
             {
                 datas = datas.Where(x => x.CodeUniv == filterUniv).ToList();
             }
 
+            // Filtering Years
+            if (string.IsNullOrWhiteSpace(filterAnnee) == false)
+            {
+                datas = datas.Where(x => x.Annee == filterAnnee).ToList();
+            }
+
             return datas;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(string? filterUniv = null, params Expression<Func<T, object>>[] includeProperties)
+        public async Task<IEnumerable<T>> GetAllAsync(string? filterUniv = null, string? filterAnnee = null, params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = _context.Set<T>();
             query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
 
             var datas = await query.ToListAsync();
 
-            // Filtering
+            // Filtering Universities
             if (string.IsNullOrWhiteSpace(filterUniv) == false)
             {
                 datas = datas.Where(x => x.CodeUniv == filterUniv).ToList();
+            }
+            // Filtering Years
+            if (string.IsNullOrWhiteSpace(filterAnnee) == false)
+            {
+                datas = datas.Where(x => x.Annee == filterAnnee).ToList();
             }
 
             return datas;

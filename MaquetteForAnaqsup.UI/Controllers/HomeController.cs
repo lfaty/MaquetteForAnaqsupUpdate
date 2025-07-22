@@ -40,4 +40,9 @@ public class HomeController : Controller
     {
         return View(await _apiServiceDataProcessing.GetStatElementConstitutif());
     }
+
+    public async Task<IActionResult> Apropos()
+    {
+        return View();
+    }
 }

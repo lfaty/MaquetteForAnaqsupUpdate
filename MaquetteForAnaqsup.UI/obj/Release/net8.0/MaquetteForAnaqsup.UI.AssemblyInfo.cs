@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaquetteForAnaqsup.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0345ad9f96a602f1f1d74a4b7b5387522ef91308")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cf4b7c1b18e882266129f643740a54d816970a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaquetteForAnaqsup.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaquetteForAnaqsup.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

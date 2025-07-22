@@ -1,45 +1,19 @@
 [
   {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "FilterFormation",
-    "RelativePath": "api/Dashboards/FilterFormation",
-    "HttpMethod": "GET",
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AccountsController",
+    "Method": "EmailConfirmation",
+    "RelativePath": "api/Accounts/EmailConfirmation",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paramCodeUniv",
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "paramIdFaculte",
-        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "paramIdDept",
-        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "FilterSearch",
-    "RelativePath": "api/Dashboards/FilterSearch",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "keyword",
+        "Name": "code",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -47,15 +21,15 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllAtomePedagogique",
-    "RelativePath": "api/Dashboards/GetAllAtomePedagogique",
-    "HttpMethod": "GET",
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AccountsController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Accounts/ForgotPassword",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paramCodeUniv",
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -63,9 +37,200 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllData",
-    "RelativePath": "api/Dashboards/GetAllData",
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AccountsController",
+    "Method": "Login",
+    "RelativePath": "api/Accounts/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequestDto",
+        "Type": "MaquetteForAnaqsup.API.Identity.DTO.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AccountsController",
+    "Method": "Register",
+    "RelativePath": "api/Accounts/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerDto",
+        "Type": "MaquetteForAnaqsup.API.Identity.DTO.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminAnneesController",
+    "Method": "Create",
+    "RelativePath": "api/AdminAnnees/Ajout-Annee",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addModel",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.AddAnneeMaquetteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminAnneesController",
+    "Method": "GetById",
+    "RelativePath": "api/AdminAnnees/Details-Annee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminAnneesController",
+    "Method": "GetAll",
+    "RelativePath": "api/AdminAnnees/Liste-Annees",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "annee",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminAnneesController",
+    "Method": "Update",
+    "RelativePath": "api/AdminAnnees/Modif-Annee",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateModel",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.UpdateAnneeMaquetteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminAnneesController",
+    "Method": "Statut",
+    "RelativePath": "api/AdminAnnees/Statut-Annee",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "statutDto",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.StatutDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminAnneesController",
+    "Method": "Delete",
+    "RelativePath": "api/AdminAnnees/Supprime-Annee",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminRolesController",
+    "Method": "AddRole",
+    "RelativePath": "api/AdminRoles/AddRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addRoleDto",
+        "Type": "MaquetteForAnaqsup.API.Identity.DTO.AddRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminRolesController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/AdminRoles/DeleteRole",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminRolesController",
+    "Method": "GetRole",
+    "RelativePath": "api/AdminRoles/GetRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminRolesController",
+    "Method": "GetRoles",
+    "RelativePath": "api/AdminRoles/GetRoles",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -73,9 +238,258 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllDataCompleted",
-    "RelativePath": "api/Dashboards/GetAllDataCompleted",
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminRolesController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/AdminRoles/UpdateRole",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateRoleDto",
+        "Type": "MaquetteForAnaqsup.API.Identity.DTO.UpdateRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "Create",
+    "RelativePath": "api/AdminUnivUserRoles/Add-Structure-User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addModel",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.AddUniversiteUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "Delete",
+    "RelativePath": "api/AdminUnivUserRoles/Delete-Structure-User",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "GetAll",
+    "RelativePath": "api/AdminUnivUserRoles/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "codeAnnee",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "GetById",
+    "RelativePath": "api/AdminUnivUserRoles/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "GetByIdDetail",
+    "RelativePath": "api/AdminUnivUserRoles/GetByIdDetail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "GetByIdRole",
+    "RelativePath": "api/AdminUnivUserRoles/GetByIdRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRole",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "GetByIdStructure",
+    "RelativePath": "api/AdminUnivUserRoles/GetByIdStructure",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idStruct",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "GetByIdUser",
+    "RelativePath": "api/AdminUnivUserRoles/GetByIdUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUser",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "Statut",
+    "RelativePath": "api/AdminUnivUserRoles/Statut",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "statutDto",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.StatutDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUnivUserRolesController",
+    "Method": "Update",
+    "RelativePath": "api/AdminUnivUserRoles/Update-Structure-User",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateModel",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.UpdateUniversiteUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUsersController",
+    "Method": "AddUser",
+    "RelativePath": "api/AdminUsers/AddUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addUserDto",
+        "Type": "MaquetteForAnaqsup.API.Identity.DTO.AddUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUsersController",
+    "Method": "EmailConfirmation",
+    "RelativePath": "api/AdminUsers/EmailConfirmation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUsersController",
+    "Method": "GetUser",
+    "RelativePath": "api/AdminUsers/GetUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUsersController",
+    "Method": "GetUsers",
+    "RelativePath": "api/AdminUsers/GetUsers",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -83,229 +497,22 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllDepartement",
-    "RelativePath": "api/Dashboards/GetAllDepartement",
-    "HttpMethod": "GET",
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.AdminUsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/AdminUsers/UpdateUser",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllElementConstitutif",
-    "RelativePath": "api/Dashboards/GetAllElementConstitutif",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllFaculte",
-    "RelativePath": "api/Dashboards/GetAllFaculte",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllFormation",
-    "RelativePath": "api/Dashboards/GetAllFormation",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllFormationBeetwenTwoUniv",
-    "RelativePath": "api/Dashboards/GetAllFormationBeetwenTwoUniv",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv1",
+        "Name": "id",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "paramCodeUniv2",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllFormationByFac",
-    "RelativePath": "api/Dashboards/GetAllFormationByFac",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "paramIdFaculte",
-        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllFormationByUniv",
-    "RelativePath": "api/Dashboards/GetAllFormationByUniv",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllGrade",
-    "RelativePath": "api/Dashboards/GetAllGrade",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllNiveau",
-    "RelativePath": "api/Dashboards/GetAllNiveau",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllParcour",
-    "RelativePath": "api/Dashboards/GetAllParcour",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllSemestre",
-    "RelativePath": "api/Dashboards/GetAllSemestre",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllUniteEnseignement",
-    "RelativePath": "api/Dashboards/GetAllUniteEnseignement",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetAllUniversite",
-    "RelativePath": "api/Dashboards/GetAllUniversite",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DashboardsController",
-    "Method": "GetFilterDataByCodeUniv",
-    "RelativePath": "api/Dashboards/GetFilterDataByCodeUniv",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "paramCodeUniv",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "updateUserDto",
+        "Type": "MaquetteForAnaqsup.API.Identity.DTO.UpdateUserDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -561,34 +768,93 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.ImportDatasController",
-    "Method": "VentileData",
-    "RelativePath": "api/ImportDatas/VentileData",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.UniversitesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Universites",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[MaquetteForAnaqsup.API.WeatherForecast, MaquetteForAnaqsup.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "CodeUniv",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CodeAnnee",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.UniversitesController",
+    "Method": "Create",
+    "RelativePath": "api/Universites",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addModel",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.AddUniversiteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.UniversitesController",
+    "Method": "GetById",
+    "RelativePath": "api/Universites/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.UniversitesController",
+    "Method": "Update",
+    "RelativePath": "api/Universites/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateModel",
+        "Type": "MaquetteForAnaqsup.API.Models.DTO.UpdateUniversiteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MaquetteForAnaqsup.API.Controllers.UniversitesController",
+    "Method": "Delete",
+    "RelativePath": "api/Universites/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

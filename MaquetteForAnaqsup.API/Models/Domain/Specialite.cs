@@ -9,7 +9,7 @@ namespace MaquetteForAnaqsup.API.Models.Domain
         public string? LibelleSpecialite { get; set; }
         public Guid? MentionId { get; set; }
         public string? CodeUniv { get; set; }
-
+        public string? Annee { get; set; }
         public DateTime DateCreation { get; set; } = DateTime.Now;
         public DateTime DateUpdate { get; set; }
         // Navigation properties

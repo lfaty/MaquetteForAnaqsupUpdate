@@ -8,7 +8,7 @@ namespace MaquetteForAnaqsup.API.Models.Domain
         public string? CodeDomaine { get; set; }
         public string? LibelleDomaine { get; set; }
         public string? CodeUniv { get; set; }
-
+        public string? Annee { get; set; }
         public DateTime? CreateDate { get; set; } = DateTime.UtcNow;
         public DateTime? UpdateDate { get; set; }
 

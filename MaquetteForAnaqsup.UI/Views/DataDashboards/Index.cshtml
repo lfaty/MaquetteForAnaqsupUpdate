@@ -15,7 +15,7 @@
                         <div class="col-md-12">
                             <form asp-controller="DataDashboards" asp-action="FilterSearch" style="padding-right: 25px;">
                                 <div class="row mt-2 mb-2">
-                                    <div class="col-md-9">
+                                    <div class="col-md-12">
                                         <h3 class="text-center">Filtre générique </h3>
                                         <div class="row form-group mt-3">
                                             <div class="col-sm-12">
@@ -46,32 +46,17 @@
                                                     <option>Niveau ...</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-9">
+                                            <div class="col-md-6">
                                                 <select id="ddlParcour" name="parcour" class="form-control form-select" asp-items="@(new SelectList(Model.ListParcours,"LibelleParcour", "LibelleParcour"))"></select>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h3 class="text-center">Filtre détaillé </h3>
-                                        <div class="col-sm-12">
-                                            <div class="row form-group mt-3">
-                                                <div class="col-sm-6">
-                                                    <select asp-for="Semestre" name="semestre" class="form-control form-select" asp-items="ViewBag.Semestre">
-                                                        <option>Semestre ...</option>
-                                                    </select>
-                                                </div>
+                                            <div class="col-md-3">
+                                                <select asp-for="Semestre" name="semestre" class="form-control form-select" asp-items="ViewBag.Semestre">
+                                                    <option>Semestre ...</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                @* <div class="row mt-2 mb-2">
-                                    <div class="col-md-12">
-                                        <div>
-                                            <input name="searchString" type="text" class="form-control" placeholder="Rechercher par mot clé..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </div>
-                                    </div>
-                                </div> *@
                                 <div class="row mt-2 mb-2">
                                     <div class="col-md-12">
                                         <div>

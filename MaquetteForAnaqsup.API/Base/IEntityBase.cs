@@ -10,5 +10,6 @@ namespace MaquetteForAnaqsup.API.Base
     {
         Guid Id { get; set; }
         string? CodeUniv { get; set; }
+        public string? Annee { get; set; }
     }
 }

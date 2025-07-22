@@ -6,6 +6,7 @@ namespace MaquetteForAnaqsup.API.Models.Domain
     {
         public Guid Id { get; set; }
         public string? CodeUniv { get; set; }
+        public string? Annee { get; set; }
         public string? NomUniversite { get; set; }
         public string? SloganUniversite { get; set; }
         public string? AdresseUniversite { get; set; }

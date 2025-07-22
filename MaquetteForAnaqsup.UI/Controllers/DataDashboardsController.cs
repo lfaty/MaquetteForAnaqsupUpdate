@@ -96,16 +96,11 @@ namespace MaquetteForAnaqsup.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FilterByKeyWord(string submitButton, string? searchString)
+        public async Task<IActionResult> FilterByKeyWord(string? searchString)
         {
             if (string.IsNullOrEmpty(searchString))
             {
                 ModelState.AddModelError("searchString", "La recherche est vide.");
-                return View(await _apiServiceDataProcessing.GetAllStatDataSearch());
-            }
-            if (submitButton.Contains("Annuler"))
-            {
-                ModelState.AddModelError("searchString", "La recherche annulée.");
                 return View(await _apiServiceDataProcessing.GetAllStatDataSearch());
             }
             if (searchString?.Length < 3)

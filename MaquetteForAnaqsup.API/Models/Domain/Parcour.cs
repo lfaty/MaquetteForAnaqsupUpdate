@@ -10,6 +10,7 @@ namespace MaquetteForAnaqsup.API.Models.Domain
         public string? Description { get; set; }
         public Guid? FormationId { get; set; }
         public string? CodeUniv { get; set; }
+        public string? Annee { get; set; }
         public Guid? SemestreId { get; set; }
         public Guid NiveauId { get; set; }
         public DateTime? CreateDate { get; set; } = DateTime.UtcNow;
