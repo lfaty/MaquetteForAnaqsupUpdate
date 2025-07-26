@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "PME Solutions API",
+    "title": "Anaq-Sup API",
     "version": "v1"
   },
   "paths": {
@@ -896,18 +896,6 @@
         }
       }
     },
-    "/api/DataProcessings/GetAllData": {
-      "get": {
-        "tags": [
-          "DataProcessings"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/DataProcessings/GetStatUniversiteAsync": {
       "get": {
         "tags": [
@@ -1028,6 +1016,18 @@
         }
       }
     },
+    "/api/DataProcessings/GetAllData": {
+      "get": {
+        "tags": [
+          "DataProcessings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/DataProcessings/GetAllStatData": {
       "get": {
         "tags": [
@@ -1097,18 +1097,6 @@
               "type": "string"
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/DataProcessings/GetStatComparaisonData": {
-      "get": {
-        "tags": [
-          "DataProcessings"
         ],
         "responses": {
           "200": {

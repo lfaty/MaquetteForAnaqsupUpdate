@@ -19,18 +19,6 @@ namespace MaquetteForAnaqsup.UI.ApiServices
             this.httpClientFactory = httpClientFactory;
         }
 
-        public async Task<DataDashboardDto> GetAllData()
-        {
-            var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
-
-            // Get All Data from Web API
-            HttpResponseMessage response = await _httpClient.GetAsync("DataProcessings/GetAllData");
-            if (!response.IsSuccessStatusCode) { return null; }
-
-            var viewModel = await response.Content.ReadFromJsonAsync<DataDashboardDto>();
-
-            return viewModel;
-        }
         public async Task<IEnumerable<DataUniversiteDto>> GetStatUniversite()
         {
             var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
@@ -112,16 +100,6 @@ namespace MaquetteForAnaqsup.UI.ApiServices
 
             return await response.Content.ReadFromJsonAsync<IEnumerable<DataElementConstitutifDto>>();
         }
-        public async Task<DataDashboardDto> GetAllStatData()
-        {
-            var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
-            // Get All Data from Web API
-            HttpResponseMessage response = await _httpClient.GetAsync("DataProcessings/GetAllStatData");
-            if (!response.IsSuccessStatusCode) { return null; }
-            var viewModel = await response.Content.ReadFromJsonAsync<DataDashboardDto>();
-
-            return viewModel;
-        }
 
         public async Task<DataDashboardDto> GetStatParCodeUniv()
         {
@@ -145,6 +123,30 @@ namespace MaquetteForAnaqsup.UI.ApiServices
             return viewModel;
         }
 
+        public async Task<DataDashboardDto> GetAllData()
+        {
+            var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
+
+            // Get All Data from Web API
+            HttpResponseMessage response = await _httpClient.GetAsync("DataProcessings/GetAllData");
+            if (!response.IsSuccessStatusCode) { return null; }
+
+            var viewModel = await response.Content.ReadFromJsonAsync<DataDashboardDto>();
+
+            return viewModel;
+        }
+
+        public async Task<DataDashboardDto> GetAllStatData()
+        {
+            var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
+            // Get All Data from Web API
+            HttpResponseMessage response = await _httpClient.GetAsync("DataProcessings/GetAllStatData");
+            if (!response.IsSuccessStatusCode) { return null; }
+            var viewModel = await response.Content.ReadFromJsonAsync<DataDashboardDto>();
+
+            return viewModel;
+        }
+
         public async Task<DataDashboardDto> GetFilterInterneDeptData(string? codeUniv, string? dept, string? grade, string? formation, int? niveau, int? semestre, string? parcour)
         {
             var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
@@ -156,16 +158,16 @@ namespace MaquetteForAnaqsup.UI.ApiServices
             return viewModel;
         }
 
-        public async Task<DataDashboardDto> GetStatComparaisonData()
-        {
-            var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
-            // Get All Data from Web API
-            HttpResponseMessage response = await _httpClient.GetAsync("DataProcessings/GetStatComparaisonData");
-            if (!response.IsSuccessStatusCode) { return null; }
-            var viewModel = await response.Content.ReadFromJsonAsync<DataDashboardDto>();
+        //public async Task<DataDashboardDto> GetStatComparaisonData()
+        //{
+        //    var _httpClient = httpClientFactory.CreateClient("custom-httpclient");
+        //    // Get All Data from Web API
+        //    HttpResponseMessage response = await _httpClient.GetAsync("DataProcessings/GetStatComparaisonData");
+        //    if (!response.IsSuccessStatusCode) { return null; }
+        //    var viewModel = await response.Content.ReadFromJsonAsync<DataDashboardDto>();
 
-            return viewModel;
-        }
+        //    return viewModel;
+        //}
 
         public async Task<DataDashboardDto> GetStatDataCommune(DataParameterDto dataParameter)
         {

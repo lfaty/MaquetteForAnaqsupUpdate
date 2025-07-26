@@ -28,39 +28,7 @@ namespace MaquetteForAnaqsup.API.Controllers
         }
 
         #region Data Generique
-        // GET: api/All
-        [HttpGet]
-        [Route("GetAllData")]
-        public async Task<ActionResult> GetAllData()
-        {
-            DataDashboardDto model = new DataDashboardDto();
-            var allData = await _serviceData.GetAllAsync();
-            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(allData.Take(500).ToList());
-            model.LibelleViewData = "Liste des données";
-
-            model.DataUniversites = await _serviceData.GetStatUniversiteAsync();
-            model.DataDepartements = await _serviceData.GetStatDepartementAsync();
-            model.DataGrades = await _serviceData.GetStatGradeAsync();
-            model.DataFormations = await _serviceData.GetStatFormationAsync();
-            model.DataNiveaus = await _serviceData.GetStatNiveauAsync();
-            model.DataParcours = await _serviceData.GetStatParcourAsync();
-            model.DataSemestres = await _serviceData.GetStatSemestreAsync();
-
-            // Get Stemmed Tokens En Communs 
-            if (model.ImportDatas.Count() > 0)
-            {
-                var groups = model.ImportDatas.GroupBy(x => CleanningText(x.LibelleLongEC)).Select(g => new { LibelleLongEC = g.Key, Total = g.Count() });
-                // Print results
-                //foreach (var item in groups.Where(x => x.Total > 2))
-                foreach (var item in groups.Where(x => x.Total > 2))
-                {
-                    model.StemmedTokens.Add(item.LibelleLongEC);
-                    model.FrequencyTokens.Add(item.Total);
-                }
-            }
-            return Ok(model);
-        }
-
+        
         // GET: api/All
         [HttpGet]
         [Route("GetStatUniversiteAsync")]
@@ -164,7 +132,39 @@ namespace MaquetteForAnaqsup.API.Controllers
         #endregion
 
         #region Data Sciences
-        
+
+        // GET: api/All
+        [HttpGet]
+        [Route("GetAllData")]
+        public async Task<ActionResult> GetAllData()
+        {
+            DataDashboardDto model = new DataDashboardDto();
+
+            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(await _serviceData.GetAllAsync());
+            model.LibelleViewData = "Liste des données";
+
+            model.DataUniversites = await _serviceData.GetStatUniversiteAsync();
+            model.DataDepartements = await _serviceData.GetStatDepartementAsync();
+            model.DataGrades = await _serviceData.GetStatGradeAsync();
+            model.DataFormations = await _serviceData.GetStatFormationAsync();
+            model.DataNiveaus = await _serviceData.GetStatNiveauAsync();
+            model.DataParcours = await _serviceData.GetStatParcourAsync();
+            model.DataSemestres = await _serviceData.GetStatSemestreAsync();
+
+            // Get Stemmed Tokens En Communs 
+            if (model.ImportDatas.Count() > 0)
+            {
+                var groups = model.ImportDatas.GroupBy(x => CleanningText(x.LibelleLongEC)).Select(g => new { LibelleLongEC = g.Key, Total = g.Count() });
+                // Print results
+                foreach (var item in groups.Where(x => x.Total > 2))
+                {
+                    model.StemmedTokens.Add(item.LibelleLongEC);
+                    model.FrequencyTokens.Add(item.Total);
+                }
+            }
+            return Ok(model);
+        }
+
         // GET: api/All
         [HttpGet]
         [Route("GetAllStatData")]
@@ -179,7 +179,6 @@ namespace MaquetteForAnaqsup.API.Controllers
             DataDashboardDto model = new DataDashboardDto();
             //var allData = ;
             model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(await _serviceData.GetAllAsync());
-
             model.TotalForms = allDataForm.Count();
             model.TotalParcours = allDataParcour.Count();
             model.TotalUEs = allDataUE.Count();
@@ -246,35 +245,211 @@ namespace MaquetteForAnaqsup.API.Controllers
         [Route("GetFilterData")]
         public async Task<ActionResult> GetFilterData(string? paramCodeUniv, string? paramDept, string? paramGrade, string? paramFormation, int? paramNiveau, int? paramSemestre, string? paramParcour)
         {
-            DataDashboardDto model = new DataDashboardDto();
+            var filteredData = await _serviceData.GetAllAsync();
 
-            var allData = await _serviceData.GetFilterDataAsync(paramCodeUniv, paramDept, paramGrade, paramFormation, paramNiveau, paramSemestre, paramParcour);
-            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(allData);
+            // Filtering paramCodeUniv
+            if (string.IsNullOrWhiteSpace(paramCodeUniv) == false)
+            {
+                filteredData = filteredData.Where(x => x.CodeUniversite == paramCodeUniv).ToList();
+            }
+
+            // Filtering paramDept
+            if (string.IsNullOrWhiteSpace(paramDept) == false)
+            {
+                filteredData = filteredData.Where(x => x.Departement.Contains(paramDept)).ToList();
+            }
+
+            // Filtering paramGrade
+            if (string.IsNullOrWhiteSpace(paramGrade) == false)
+            {
+                filteredData = filteredData.Where(x => x.Grade == paramGrade).ToList();
+            }
+
+            // Filtering paramFormation
+            if (string.IsNullOrWhiteSpace(paramFormation) == false)
+            {
+                filteredData = filteredData.Where(x => x.LibelleFormation.Contains(paramFormation) || x.Abreviation.Contains(paramFormation)).ToList();
+            }
+
+            // Filtering paramNiveau x.LibelleFormation.Contains(paramFormation)
+            if (paramNiveau > 0)
+            {
+                filteredData = filteredData.Where(x => x.Niveau == paramNiveau).ToList();
+            }
+
+            // Filtering paramSemestre
+            if (paramSemestre > 0)
+            {
+                filteredData = filteredData.Where(x => x.Semestre == paramSemestre).ToList();
+            }
+
+            // Filtering paramParcour
+            if (string.IsNullOrWhiteSpace(paramParcour) == false)
+            {
+                filteredData = filteredData.Where(x => x.Parcours.Contains(paramParcour)).ToList();
+            }
+
+            DataDashboardDto model = new DataDashboardDto();
+            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(filteredData);
 
             return Ok(model);
         }
 
-        // GET: api/All
-        [HttpGet]
-        [Route("GetStatComparaisonData")]
-        public async Task<ActionResult> GetStatComparaisonData()
-        {
-            DataDashboardDto model = new DataDashboardDto();
-            var allData = await _serviceData.GetStatComparaisonAsync();
-            model.LstDataStatComparaisons = allData.Take(500).ToList();
-            return Ok(model);
-        }
+        //// GET: api/All
+        //[HttpGet]
+        //[Route("GetStatComparaisonData")]
+        //public async Task<ActionResult> GetStatComparaisonData()
+        //{
+        //    DataDashboardDto model = new DataDashboardDto();
+        //    var allData = await _serviceData.GetStatComparaisonAsync();
+        //    model.LstDataStatComparaisons = allData.Take(500).ToList();
+        //    return Ok(model);
+        //}
 
         // GET: api/All
         [HttpPost]
         [Route("GetStatDataCommune")]
         public async Task<ActionResult> GetStatDataCommune([FromBody] DataParameterDto dataParameter)
         {
-            var allData = await _serviceData.GetFormationCommuneAsync(dataParameter);
-            if (allData == null) return NotFound();
+            var paramGrade = dataParameter.Grade;
+            var paramNiveau = dataParameter.Niveau;
+            var paramSemestre = dataParameter.Semestre;
+            var lstCodeUniv = dataParameter.CodeUnivs ?? new List<string>();
+
+            var filteredData = await _serviceData.GetAllAsync();
+
+            // Filtering paramGrade
+            if (string.IsNullOrWhiteSpace(paramGrade) == false)
+            {
+                filteredData = filteredData.Where(x => x.Grade == paramGrade).ToList();
+            }
+
+            // Filtering paramNiveau 
+            if (paramNiveau > 0)
+            {
+                filteredData = filteredData.Where(x => x.Niveau == paramNiveau).ToList();
+            }
+
+            // Filtering paramSemestre
+            if (paramSemestre > 0)
+            {
+                filteredData = filteredData.Where(x => x.Semestre == paramSemestre).ToList();
+            }
+
+            List<ImportData> resultats = new List<ImportData>();
+
+            if (lstCodeUniv.Count() > 1)
+            {
+                for (int i = 0; i < lstCodeUniv.Count(); i++)
+                {
+                    var j = i + 1;
+                    if (j >= lstCodeUniv.Count())
+                    {
+                        var firstCode = lstCodeUniv.ElementAt(index: 0);
+                        var lastCode = lstCodeUniv.ElementAt(index: ^1);
+                        // Filtering paramCodeUniv
+                        var filteredData_i = filteredData.Where(x => x.CodeUniversite == firstCode).ToList();
+                        var filteredData_j = filteredData.Where(x => x.CodeUniversite == lastCode).ToList();
+
+                        // Select LibelleLongEC for both universities
+                        var selectData_i = filteredData_i.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+                        var selectData_j = filteredData_j.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+
+                        // Find common LibelleLongEC between the two universities
+                        var commonLibelleLongEC = selectData_i.Intersect(selectData_j).ToList();
+                        // Filter the data for both universities based on the common LibelleLongEC
+                        if (commonLibelleLongEC.Count == 0)
+                        {
+                            continue; // Skip to the next iteration if no common elements
+                        }
+                        // Add the results to the final list
+                        resultats.AddRange(filteredData_i.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+                        resultats.AddRange(filteredData_j.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+
+                        break;
+                    }
+                    else
+                    {
+                        // Filtering paramCodeUniv
+                        var filteredData_i = filteredData.Where(x => x.CodeUniversite == lstCodeUniv[i]).ToList();
+                        var filteredData_j = filteredData.Where(x => x.CodeUniversite == lstCodeUniv[j]).ToList();
+
+                        // Select LibelleLongEC for both universities
+                        var selectData_i = filteredData_i.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+                        var selectData_j = filteredData_j.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+
+                        // Find common LibelleLongEC between the two universities
+                        var commonLibelleLongEC = selectData_i.Intersect(selectData_j).ToList();
+                        // Filter the data for both universities based on the common LibelleLongEC
+                        if (commonLibelleLongEC.Count == 0)
+                        {
+                            continue; // Skip to the next iteration if no common elements
+                        }
+                        // Add the results to the final list
+                        resultats.AddRange(filteredData_i.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+                        resultats.AddRange(filteredData_j.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+                    }
+                }
+            }
+            else
+            {
+                var filteredData_0 = filteredData.Where(x => x.CodeUniversite == lstCodeUniv[0]).ToList();
+                var lstFormation = filteredData_0.GroupBy(x => x.Abreviation).Select(g => new { Abreviation = g.Key });
+
+                for (int i = 0; i < lstFormation.Count(); i++)
+                {
+                    var j = i + 1;
+                    if (j >= lstFormation.Count())
+                    {
+                        var firstAbreg = lstFormation.ElementAt(index: 0).Abreviation;
+                        var lastAbreg = lstFormation.ElementAt(index: ^1).Abreviation;
+                        // Filtering paramCodeUniv
+                        var filteredData_i = filteredData_0.Where(x => x.Abreviation == firstAbreg).ToList();
+                        var filteredData_j = filteredData_0.Where(x => x.Abreviation == lastAbreg).ToList();
+                        // Select LibelleLongEC for both universities
+                        var selectData_i = filteredData_i.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+                        var selectData_j = filteredData_j.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+                        // Find common LibelleLongEC between the two universities
+                        var commonLibelleLongEC = selectData_i.Intersect(selectData_j).ToList();
+                        // Filter the data for both universities based on the common LibelleLongEC
+                        if (commonLibelleLongEC.Count == 0)
+                        {
+                            continue; // Skip to the next iteration if no common elements
+                        }
+                        // Add the results to the final list
+                        resultats.AddRange(filteredData_i.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+                        resultats.AddRange(filteredData_j.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+
+                        break;
+                    }
+                    else
+                    {
+                        // Filtering paramCodeUniv
+                        var filteredData_i = filteredData_0.Where(x => x.Abreviation == lstFormation.ElementAt(i).Abreviation).ToList();
+                        var filteredData_j = filteredData_0.Where(x => x.Abreviation == lstFormation.ElementAt(j).Abreviation).ToList();
+                        // Select LibelleLongEC for both universities
+                        var selectData_i = filteredData_i.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+                        var selectData_j = filteredData_j.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+                        // Find common LibelleLongEC between the two universities
+                        var commonLibelleLongEC = selectData_i.Intersect(selectData_j).ToList();
+                        // Filter the data for both universities based on the common LibelleLongEC
+                        if (commonLibelleLongEC.Count == 0)
+                        {
+                            continue; // Skip to the next iteration if no common elements
+                        }
+                        // Add the results to the final list
+                        resultats.AddRange(filteredData_i.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+                        resultats.AddRange(filteredData_j.Where(item => commonLibelleLongEC.Contains(CleanningText(item.LibelleLongEC))).ToList());
+                    }
+                }
+            }
+
+            //var allData = await _serviceData.GetFormationCommuneAsync(dataParameter);
+            //if (allData == null) return NotFound();
+            //model.LstDataStatComparaisons =filteredData.ToList();
 
             DataDashboardDto model = new DataDashboardDto();
-            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(allData);
+            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(resultats);
             model.LibelleViewData = "Données en communs";
 
             // Get Stemmed Tokens En Communs 
@@ -297,19 +472,67 @@ namespace MaquetteForAnaqsup.API.Controllers
         [Route("GetStatDataDifferente")]
         public async Task<ActionResult> GetStatDataDifferente([FromBody] DataParameterDto dataParameter)
         {
-            var allData = await _serviceData.GetFormationDifferenceAsync(dataParameter);
-            if (allData == null) return NotFound();
+            var filteredData = await _serviceData.GetAllAsync();
+            var paramGrade = dataParameter.Grade;
+            var paramNiveau = dataParameter.Niveau;
+            var paramSemestre = dataParameter.Semestre;
+            var lstCodeUniv = dataParameter.CodeUnivs ?? new List<string>();
+
+            // Filtering paramGrade
+            if (string.IsNullOrWhiteSpace(paramGrade) == false)
+            {
+                filteredData = filteredData.Where(x => x.Grade == paramGrade).ToList();
+            }
+
+            // Filtering paramNiveau 
+            if (paramNiveau > 0)
+            {
+                filteredData = filteredData.Where(x => x.Niveau == paramNiveau).ToList();
+            }
+
+            // Filtering paramSemestre
+            if (paramSemestre > 0)
+            {
+                filteredData = filteredData.Where(x => x.Semestre == paramSemestre).ToList();
+            }
+
+            // Filtering paramCodeUniv
+            if (lstCodeUniv.Count() > 0)
+            {
+                for (int i = 0; i < lstCodeUniv.Count(); i++)
+                {
+                    filteredData = filteredData.Where(x => x.CodeUniversite == lstCodeUniv[i]).ToList();
+                }
+            }
+            
+            // Correctly retrieve the result from GetStatDataCommune
+            var dataCommuneResult = await GetStatDataCommune(dataParameter) as ObjectResult;
+            if (dataCommuneResult == null || dataCommuneResult.Value == null)
+            {
+                return NotFound();
+            }
+
+            var dataCommuneData = dataCommuneResult.Value as DataDashboardDto;
+            if (dataCommuneData == null || dataCommuneData.ImportDatas == null || !dataCommuneData.ImportDatas.Any())
+            {
+                return NotFound();
+            }
+
+
+            // Get LibelleLongEC from DataCommune
+            var selectDataCommun = dataCommuneData.ImportDatas.Select(x => CleanningText(x.LibelleLongEC)).ToList();
+
+            // Filter FormationTotal to exclude items present in FormationCommune
+            var formationDifferente = filteredData.Where(item => !selectDataCommun.Contains(CleanningText(item.LibelleLongEC))).ToList();
 
             DataDashboardDto model = new DataDashboardDto();
-            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(allData);
+            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(formationDifferente);
             model.LibelleViewData = "Données différentes";
 
             // Get Stemmed Tokens En Communs 
             if (model.ImportDatas.Count() > 0)
             {
                 var groups = model.ImportDatas.GroupBy(x => CleanningText(x.LibelleLongEC)).Select(g => new { LibelleLongEC = g.Key, Total = g.Count() });
-                // Print results
-                //foreach (var item in groups.Where(x => x.Total > 2))
                 foreach (var item in groups)
                 {
                     model.StemmedTokens.Add(item.LibelleLongEC);
@@ -327,8 +550,7 @@ namespace MaquetteForAnaqsup.API.Controllers
         public async Task<ActionResult> GetAllStatDataSearch()
         {
             DataDashboardDto model = new DataDashboardDto();
-            var allData = await _serviceData.GetAllAsync();
-            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(allData.Take(500).ToList());
+            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(await _serviceData.GetAllAsync());
             model.LibelleViewData = "Répartition des EC par Université";
 
             var allDataEC = await _serviceData.GetStatElementConstitutifAsync();
@@ -361,9 +583,18 @@ namespace MaquetteForAnaqsup.API.Controllers
         {
             DataDashboardDto model = new DataDashboardDto();
 
-            var allData = await _serviceData.GetStatECSearch(paramLibelleEC);
-            if (allData == null) return NotFound();
-            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(allData);
+            var filteredData = _mapper.Map<IEnumerable<ImportDataDto>>(await _serviceData.GetAllAsync());
+            //var groups = model.ImportDatas.GroupBy(x => CleanningText(x.LibelleLongEC)).Select(g => new { LibelleLongEC = g.Key, Total = g.Count() });
+            // Filtering paramLibelleEC
+            if (string.IsNullOrWhiteSpace(paramLibelleEC) == false)
+            {
+                filteredData = filteredData.Where(x =>
+                    CleanningText(x.LibelleLongEC).Contains(CleanningText(paramLibelleEC)) ||
+                    CleanningText(x.LibelleUE).Contains(CleanningText(paramLibelleEC))
+                ).ToList();
+            }
+
+            model.ImportDatas = _mapper.Map<IEnumerable<ImportDataDto>>(filteredData);
             model.LibelleViewData = "Répartition "+ paramLibelleEC + " par Université";
 
             // Get Stemmed Tokens En Communs 
@@ -379,6 +610,46 @@ namespace MaquetteForAnaqsup.API.Controllers
                 }
             }
             return Ok(model);
+        }
+
+        public static string CleanningText(string texteInput)
+        {
+            // Remove special characters and digits
+            texteInput = Regex.Replace(texteInput, @"[^\w\s]", " ");
+            texteInput = Regex.Replace(texteInput, @"\d", " ");
+            // Remove extra spaces
+            texteInput = Regex.Replace(texteInput, @"\s+", " ").Trim();
+            // Convert to lowercase
+            texteInput = texteInput.ToLowerInvariant();
+            // Remove "et" "des" words
+            texteInput = Regex.Replace(texteInput, @"\bet\b|\bdes\b", " ").Trim();
+            // Create an MLContext instance
+            var mlContext = new MLContext();
+
+            // Step 1: Load data
+            var data = mlContext.Data.LoadFromEnumerable(new[] { new TextData { Text = texteInput } });
+
+            // Step 2: Normalize and tokenize text
+            var textPipeline = mlContext.Transforms.Text.NormalizeText("NormalizedText", "Text")
+                .Append(mlContext.Transforms.Text.TokenizeIntoWords("Tokens", "NormalizedText"))
+                .Append(mlContext.Transforms.Text.RemoveDefaultStopWords("FilteredTokens", "Tokens"));
+
+            var textModel = textPipeline.Fit(data);
+            var processedData = textModel.Transform(data);
+
+            // Step 3: Custom Stemming (using Porter2Stemmer)
+            var stemmer = new EnglishPorter2Stemmer();
+            var tokensColumn = processedData.GetColumn<string[]>("FilteredTokens");
+            var stemmedTokens = tokensColumn.Select(tokens => tokens.Select(t => stemmer.Stem(t).Value).ToArray()).ToArray();
+
+            var result = "";
+
+            foreach (var item in stemmedTokens)
+            {
+                result = string.Join(" ", item);
+            }
+
+            return result;
         }
 
         //[HttpGet]
@@ -430,46 +701,7 @@ namespace MaquetteForAnaqsup.API.Controllers
         //    return Ok(model);
         //}
 
-        public static string CleanningText(string texteInput)
-        {
-            // Remove special characters and digits
-            texteInput = Regex.Replace(texteInput, @"[^\w\s]", " ");
-            texteInput = Regex.Replace(texteInput, @"\d", " ");
-            // Remove extra spaces
-            texteInput = Regex.Replace(texteInput, @"\s+", " ").Trim();
-            // Convert to lowercase
-            texteInput = texteInput.ToLowerInvariant();
-            // Remove "et" "des" words
-            texteInput = Regex.Replace(texteInput, @"\bet\b|\bdes\b", " ").Trim();
-            // Create an MLContext instance
-            var mlContext = new MLContext();
-
-            // Step 1: Load data
-            var data = mlContext.Data.LoadFromEnumerable(new[] { new TextData { Text = texteInput } });
-
-            // Step 2: Normalize and tokenize text
-            var textPipeline = mlContext.Transforms.Text.NormalizeText("NormalizedText", "Text")
-                .Append(mlContext.Transforms.Text.TokenizeIntoWords("Tokens", "NormalizedText"))
-                .Append(mlContext.Transforms.Text.RemoveDefaultStopWords("FilteredTokens", "Tokens"));
-
-            var textModel = textPipeline.Fit(data);
-            var processedData = textModel.Transform(data);
-
-            // Step 3: Custom Stemming (using Porter2Stemmer)
-            var stemmer = new EnglishPorter2Stemmer();
-            var tokensColumn = processedData.GetColumn<string[]>("FilteredTokens");
-            var stemmedTokens = tokensColumn.Select(tokens => tokens.Select(t => stemmer.Stem(t).Value).ToArray()).ToArray();
-
-            var result = "";
-
-            foreach (var item in stemmedTokens)
-            {
-                result = string.Join(" ", item);
-            }
-
-            return result;
-        }
-
         #endregion
     }
+
 }

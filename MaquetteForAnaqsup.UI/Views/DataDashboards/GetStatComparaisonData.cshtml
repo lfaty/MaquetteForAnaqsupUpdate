@@ -10,53 +10,40 @@
     <div class="row mt-2">
         <div class="col-md-12">
             <div class="card">
+                <h3 class="text-center">Filtre générique </h3>
                 <div class="card-header">
-                    <div class="row mt-2 mb-2">
-                        <div class="col-md-12">
-                            <form asp-controller="DataDashboards" asp-action="FilterParametre" style="padding-right: 25px;">
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-md-2"></div>
-                                    <div class="col-md-8">
-                                        <h3 class="text-center">Filtre générique </h3>
-                                        <div class="row form-group mt-3">
-                                            <div class="col-sm-12">
-                                                <select asp-for="CodeUniversite" name="codeUnivs" class="form-control select2" data-placeholder="Selectionner université" asp-items="ViewBag.CodeUniversite" multiple="multiple" style="width: 100%;">
-                                                </select>
-                                            </div>
-                                            <span asp-validation-for="CodeUniversite" class="text-danger"></span>
-                                        </div>
-                                        <div class="row form-group mt-3">
-                                            <div class="col-md-4">
-                                                <select asp-for="Grade" name="grade" class="form-control form-select" asp-items="ViewBag.Grade">
-                                                    <option>Grade ...</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <select asp-for="Niveau" name="niveau" class="form-control form-select" asp-items="ViewBag.Niveau">
-                                                    <option>Niveau ...</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <select asp-for="Semestre" name="semestre" class="form-control form-select" asp-items="ViewBag.Semestre">
-                                                    <option>Semestre ...</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2"></div>
-                                </div>
-                                <div class="row mt-2 mb-2">
-                                    <div class="col-md-12">
-                                        <div class="form-group mt-3 text-center">
-                                            <input type="submit" name="submitButton" value="Commun" class="btn btn-success btn-lg p-3 mb-2" />
-                                            <input type="submit" name="submitButton" value="Different" class="btn btn-danger btn-lg p-3 mb-2" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
+                    <form asp-controller="DataDashboards" asp-action="FilterParametre" style="padding-right: 25px;">
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <select asp-for="CodeUniversite" name="codeUnivs" class="form-control select2" data-placeholder="Selectionner université" asp-items="ViewBag.CodeUniversite" multiple="multiple" style="width: 100%;">
+                                </select>
+                                <span asp-validation-for="CodeUniversite" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-2">
+                                <select asp-for="Grade" name="grade" class="form-control form-select" asp-items="ViewBag.Grade">
+                                    <option>Grade ...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select asp-for="Niveau" name="niveau" class="form-control form-select" asp-items="ViewBag.Niveau">
+                                    <option>Niveau ...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select asp-for="Semestre" name="semestre" class="form-control form-select" asp-items="ViewBag.Semestre">
+                                    <option>Semestre ...</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-12">
+                                <div class="form-group mt-3 text-center">
+                                    <input type="submit" name="submitButton" value="Commun" class="btn btn-success btn-lg p-3 mb-2" />
+                                    <input type="submit" name="submitButton" value="Different" class="btn btn-danger btn-lg p-3 mb-2" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -99,31 +86,10 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.Id)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.ImportData.CodeUniversite)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.LibelleUniversite)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.Faculte)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.ImportData.Departement)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.CodeDomaine)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.LibelleDomaine)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.Mention)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.Specialite)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.ImportData.Abreviation)
@@ -156,9 +122,6 @@
                                         @Html.DisplayNameFor(model => model.ImportData.CoefUE)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.ImportData.NatureUE)
-                                    </th>
-                                    <th>
                                         @Html.DisplayNameFor(model => model.ImportData.CodeEC)
                                     </th>
                                     <th>
@@ -186,31 +149,10 @@
                                 {
                                     <tr>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Id)
-                                        </td>
-                                        <td>
                                             @Html.DisplayFor(modelItem => item.CodeUniversite)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.LibelleUniversite)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Faculte)
-                                        </td>
-                                        <td>
                                             @Html.DisplayFor(modelItem => item.Departement)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.CodeDomaine)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.LibelleDomaine)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Mention)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Specialite)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Abreviation)
@@ -241,9 +183,6 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.CoefUE)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.NatureUE)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.CodeEC)

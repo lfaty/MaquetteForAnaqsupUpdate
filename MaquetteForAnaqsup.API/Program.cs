@@ -1,4 +1,5 @@
 using MaquetteForAnaqsup.API.Data;
+using MaquetteForAnaqsup.API.Identity.Data;
 using MaquetteForAnaqsup.API.Mappings;
 using MaquetteForAnaqsup.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -40,6 +41,14 @@ var logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 
+// Configuration Connection 
+builder.Services.AddDbContext<ApplicationsDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Configuration Identity
+builder.Services.AddDbContext<AuthDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AuthConnection")));
+
 // Configuration HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
 
@@ -55,7 +64,7 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "PME Solutions API", Version = "v1" });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Anaq-Sup API", Version = "v1" });
     options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -84,37 +93,17 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
-// Configuration Connection 
-builder.Services.AddDbContext<ApplicationsDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedEmail = true;
+})
+    .AddEntityFrameworkStores<AuthDbContext>()
+    .AddDefaultTokenProviders();
 
-// Configuration Repository
-//builder.Services.AddScoped<IUploadFilesService, UploadFilesService>();
-builder.Services.AddScoped<IDatasService, DatasService>();
-builder.Services.AddScoped<IAtomeElementConstitutifsService, AtomeElementConstitutifsService>();
-builder.Services.AddScoped<IParcourUniteEnseignementsService, ParcourUniteEnseignementsService>();
-builder.Services.AddScoped<INatureUEsService, NatureUEsService>();
-builder.Services.AddScoped<ISemestresService, SemestresService>();
-builder.Services.AddScoped<IGradesService, GradesService>();
-builder.Services.AddScoped<INiveausService, NiveausService>();
-builder.Services.AddScoped<IAtomePedagogiquesService, AtomePedagogiquesService>();
-builder.Services.AddScoped<IDebouchesService, DebouchesService>();
-builder.Services.AddScoped<IDepartementsService, DepartementsService>();
-builder.Services.AddScoped<IDomainesService, DomainesService>();
-builder.Services.AddScoped<IElementConstitutifsService, ElementConstitutifsService>();
-builder.Services.AddScoped<IFacultesService, FacultesService>();
-builder.Services.AddScoped<IFormationsService, FormationsService>();
-//builder.Services.AddScoped<IImagesService, ImagesService>();
-builder.Services.AddScoped<IMentionsService, MentionsService>();
-builder.Services.AddScoped<IParcoursService, ParcoursService>();
-builder.Services.AddScoped<ISpecialitesService, SpecialitesService>();
-builder.Services.AddScoped<IUniteEnseignementsService, UniteEnseignementsService>();
-builder.Services.AddScoped<IUniversitesService, UniversitesService>();
-builder.Services.AddScoped<IVillesService, VillesService>();
-
-
-// Configuration Automapper
-builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
+// Add Identity Services
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, UserClaimsPrincipalFactory<IdentityUser, IdentityRole>>();
 
 // Config Identity Options
 builder.Services.Configure<IdentityOptions>(options =>
@@ -155,9 +144,49 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+//Add services.AddMemoryCache()
+//builder.Services.AddMemoryCache();
+
+// Add services.AddCors()
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder => builder.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
+
+
+// Configuration Automapper
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
+
+// Configuration Repository
+//builder.Services.AddScoped<IUploadFilesService, UploadFilesService>();
+builder.Services.AddScoped<IDatasService, DatasService>();
+builder.Services.AddScoped<IAtomeElementConstitutifsService, AtomeElementConstitutifsService>();
+builder.Services.AddScoped<IParcourUniteEnseignementsService, ParcourUniteEnseignementsService>();
+builder.Services.AddScoped<INatureUEsService, NatureUEsService>();
+builder.Services.AddScoped<ISemestresService, SemestresService>();
+builder.Services.AddScoped<IGradesService, GradesService>();
+builder.Services.AddScoped<INiveausService, NiveausService>();
+builder.Services.AddScoped<IAtomePedagogiquesService, AtomePedagogiquesService>();
+builder.Services.AddScoped<IDebouchesService, DebouchesService>();
+builder.Services.AddScoped<IDepartementsService, DepartementsService>();
+builder.Services.AddScoped<IDomainesService, DomainesService>();
+builder.Services.AddScoped<IElementConstitutifsService, ElementConstitutifsService>();
+builder.Services.AddScoped<IFacultesService, FacultesService>();
+builder.Services.AddScoped<IFormationsService, FormationsService>();
+//builder.Services.AddScoped<IImagesService, ImagesService>();
+builder.Services.AddScoped<IMentionsService, MentionsService>();
+builder.Services.AddScoped<IParcoursService, ParcoursService>();
+builder.Services.AddScoped<ISpecialitesService, SpecialitesService>();
+builder.Services.AddScoped<IUniteEnseignementsService, UniteEnseignementsService>();
+builder.Services.AddScoped<IUniversitesService, UniversitesService>();
+builder.Services.AddScoped<IVillesService, VillesService>();
+
+
 
 var app = builder.Build();
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -187,6 +216,7 @@ app.UseStaticFiles(new StaticFileOptions
     FileProvider = new PhysicalFileProvider(filesPath),
     RequestPath = "/UploadFile"
 });
+
 
 app.MapControllers();
 

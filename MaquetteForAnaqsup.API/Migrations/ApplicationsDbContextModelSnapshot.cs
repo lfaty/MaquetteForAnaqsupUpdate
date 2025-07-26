@@ -117,13 +117,51 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.ToTable("ImportDatas");
                 });
 
+            modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.AnneeMaquette", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CodeUniv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateStatut")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Libelle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Statut")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Struct")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AnneeMaquettes");
+                });
+
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.AtomeElementConstitutif", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AtomePedagogiqueId")
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("AtomePedagogiqueId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CodeUniv")
@@ -132,7 +170,10 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ElementConstitutifId")
+                    b.Property<Guid?>("ElementConstitutifId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("FormationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -147,6 +188,8 @@ namespace MaquetteForAnaqsup.API.Migrations
 
                     b.HasIndex("ElementConstitutifId");
 
+                    b.HasIndex("FormationId");
+
                     b.ToTable("AtomeElementConstitutifs");
                 });
 
@@ -155,6 +198,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
@@ -179,6 +225,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
 
@@ -188,9 +237,6 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("FormationId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("LibelleDebouche")
                         .HasColumnType("nvarchar(max)");
 
@@ -198,8 +244,6 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FormationId");
 
                     b.ToTable("Debouches");
                 });
@@ -209,6 +253,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeDepartement")
                         .HasColumnType("nvarchar(max)");
@@ -241,6 +288,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeDomaine")
                         .HasColumnType("nvarchar(max)");
 
@@ -267,6 +317,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeEC")
                         .HasColumnType("nvarchar(max)");
 
@@ -279,16 +332,21 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<DateTime?>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("FormationId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("LibelleEC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UniteEnseignementId")
+                    b.Property<Guid?>("UniteEnseignementId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FormationId");
 
                     b.HasIndex("UniteEnseignementId");
 
@@ -300,6 +358,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeFaculte")
                         .HasColumnType("nvarchar(max)");
@@ -327,11 +388,8 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("AnneeDebut")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AnneeFin")
-                        .HasColumnType("int");
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeFormation")
                         .HasColumnType("nvarchar(max)");
@@ -373,11 +431,47 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.ToTable("Formations");
                 });
 
+            modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.FormationDebouche", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CodeUniv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DeboucheId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("FormationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeboucheId");
+
+                    b.HasIndex("FormationId");
+
+                    b.ToTable("FormationDebouches");
+                });
+
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.Grade", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
@@ -401,6 +495,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
@@ -434,6 +531,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeMention")
                         .HasColumnType("nvarchar(max)");
 
@@ -465,6 +565,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
 
@@ -488,6 +591,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
 
@@ -510,6 +616,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeParcour")
                         .HasColumnType("nvarchar(max)");
@@ -555,11 +664,17 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("FormationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ParcourId")
                         .HasColumnType("uniqueidentifier");
@@ -571,6 +686,8 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FormationId");
 
                     b.HasIndex("ParcourId");
 
@@ -584,6 +701,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
@@ -607,6 +727,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeSpecialite")
                         .HasColumnType("nvarchar(max)");
@@ -639,6 +762,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CodeUE")
                         .HasColumnType("nvarchar(max)");
 
@@ -654,6 +780,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Property<int?>("CreditUE")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("FormationId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("LibelleUE")
                         .HasColumnType("nvarchar(max)");
 
@@ -664,6 +793,8 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FormationId");
 
                     b.HasIndex("NatureUniteEnseignementId");
 
@@ -677,6 +808,9 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AdresseUniversite")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Annee")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeUniv")
@@ -707,11 +841,52 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.ToTable("Universites");
                 });
 
+            modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.UniversiteUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CodeUniv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateStatut")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Statut")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UniversiteId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UniversiteUsers");
+                });
+
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.Ville", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Annee")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeUniv")
                         .HasColumnType("nvarchar(max)");
@@ -738,28 +913,20 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.HasOne("MaquetteForAnaqsup.API.Models.Domain.AtomePedagogique", "AtomePedagogique")
                         .WithMany("AtomeElementConstitutifs")
                         .HasForeignKey("AtomePedagogiqueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_AtomeElementConstitutif_AtomePedagogique");
 
                     b.HasOne("MaquetteForAnaqsup.API.Models.Domain.ElementConstitutif", "ElementConstitutif")
                         .WithMany("AtomeElementConstitutifs")
                         .HasForeignKey("ElementConstitutifId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_AtomeElementConstitutif_ElementConstitutif");
+
+                    b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Formation", "Formation")
+                        .WithMany()
+                        .HasForeignKey("FormationId");
 
                     b.Navigation("AtomePedagogique");
 
                     b.Navigation("ElementConstitutif");
-                });
-
-            modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.Debouche", b =>
-                {
-                    b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Formation", "Formation")
-                        .WithMany("Debouches")
-                        .HasForeignKey("FormationId")
-                        .HasConstraintName("FK_Debouche_Formation");
 
                     b.Navigation("Formation");
                 });
@@ -776,12 +943,16 @@ namespace MaquetteForAnaqsup.API.Migrations
 
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.ElementConstitutif", b =>
                 {
+                    b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Formation", "Formation")
+                        .WithMany()
+                        .HasForeignKey("FormationId");
+
                     b.HasOne("MaquetteForAnaqsup.API.Models.Domain.UniteEnseignement", "UniteEnseignement")
                         .WithMany("ElementConstitutifs")
                         .HasForeignKey("UniteEnseignementId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_ElementConstitutif_UniteEnseignement");
+
+                    b.Navigation("Formation");
 
                     b.Navigation("UniteEnseignement");
                 });
@@ -815,6 +986,25 @@ namespace MaquetteForAnaqsup.API.Migrations
                     b.Navigation("Mention");
 
                     b.Navigation("Specialite");
+                });
+
+            modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.FormationDebouche", b =>
+                {
+                    b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Debouche", "Debouche")
+                        .WithMany("FormationDebouches")
+                        .HasForeignKey("DeboucheId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_FormationDebouche_Debouche");
+
+                    b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Formation", "Formation")
+                        .WithMany("FormationDebouches")
+                        .HasForeignKey("FormationId")
+                        .HasConstraintName("FK_FormationDebouche_Formation");
+
+                    b.Navigation("Debouche");
+
+                    b.Navigation("Formation");
                 });
 
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.Mention", b =>
@@ -855,6 +1045,10 @@ namespace MaquetteForAnaqsup.API.Migrations
 
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.ParcourUniteEnseignement", b =>
                 {
+                    b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Formation", "Formation")
+                        .WithMany()
+                        .HasForeignKey("FormationId");
+
                     b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Parcour", "Parcour")
                         .WithMany("ParcourUniteEnseignements")
                         .HasForeignKey("ParcourId")
@@ -864,6 +1058,8 @@ namespace MaquetteForAnaqsup.API.Migrations
                         .WithMany("ParcourUniteEnseignements")
                         .HasForeignKey("UniteEnseignementId")
                         .HasConstraintName("FK_ParcourUniteEnseignement_UniteEnseignement");
+
+                    b.Navigation("Formation");
 
                     b.Navigation("Parcour");
 
@@ -882,10 +1078,16 @@ namespace MaquetteForAnaqsup.API.Migrations
 
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.UniteEnseignement", b =>
                 {
+                    b.HasOne("MaquetteForAnaqsup.API.Models.Domain.Formation", "Formation")
+                        .WithMany()
+                        .HasForeignKey("FormationId");
+
                     b.HasOne("MaquetteForAnaqsup.API.Models.Domain.NatureUniteEnseignement", "NatureUniteEnseignement")
                         .WithMany("UniteEnseignements")
                         .HasForeignKey("NatureUniteEnseignementId")
                         .HasConstraintName("FK_UniteEnseignement_NatureUniteEnseignement");
+
+                    b.Navigation("Formation");
 
                     b.Navigation("NatureUniteEnseignement");
                 });
@@ -900,6 +1102,11 @@ namespace MaquetteForAnaqsup.API.Migrations
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.AtomePedagogique", b =>
                 {
                     b.Navigation("AtomeElementConstitutifs");
+                });
+
+            modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.Debouche", b =>
+                {
+                    b.Navigation("FormationDebouches");
                 });
 
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.Departement", b =>
@@ -924,7 +1131,7 @@ namespace MaquetteForAnaqsup.API.Migrations
 
             modelBuilder.Entity("MaquetteForAnaqsup.API.Models.Domain.Formation", b =>
                 {
-                    b.Navigation("Debouches");
+                    b.Navigation("FormationDebouches");
 
                     b.Navigation("Parcours");
                 });

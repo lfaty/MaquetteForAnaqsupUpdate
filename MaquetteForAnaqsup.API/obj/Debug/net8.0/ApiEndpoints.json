@@ -621,16 +621,6 @@
   },
   {
     "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
-    "Method": "GetStatComparaisonData",
-    "RelativePath": "api/DataProcessings/GetStatComparaisonData",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MaquetteForAnaqsup.API.Controllers.DataProcessingsController",
     "Method": "GetStatDataCommune",
     "RelativePath": "api/DataProcessings/GetStatDataCommune",
     "HttpMethod": "POST",

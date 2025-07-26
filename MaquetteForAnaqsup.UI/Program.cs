@@ -17,6 +17,9 @@ builder.Services.AddHttpClient("custom-httpclient", httpClient =>
 builder.Services.AddSingleton<DashboardsApiService>();
 builder.Services.AddSingleton<DataDashboardsApiService>();
 
+//Add services.AddMemoryCache()
+//builder.Services.AddMemoryCache();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

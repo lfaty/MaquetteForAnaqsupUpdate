@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DeVWATzQcWSjgjPvvw7FxyjosALmbgdCJO+NC45bPbU=",
+  "Hash": "gQbhJ0x9RlIVNzBW9QqhJTjwUrxMZ5D/MSi0Bniy1Ls=",
   "Source": "MaquetteForAnaqsup.API",
   "BasePath": "_content/MaquetteForAnaqsup.API",
   "Mode": "Default",
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8ersuns9kv",
-      "Integrity": "UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=",
+      "Fingerprint": "jbo62ls622",
+      "Integrity": "YUmDRrXKNNj9Z4U1sunFA7y+PFlEak6UNC9jMmBYzSw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UploadFile\\Dataset_globale.xlsx"
@@ -164,7 +164,7 @@
       ]
     },
     {
-      "Route": "UploadFile/Dataset_globale.8ersuns9kv.xlsx",
+      "Route": "UploadFile/Dataset_globale.jbo62ls622.xlsx",
       "AssetFile": "C:\\Outils\\DevAppsWeb\\MaquetteForAnaqsup\\MaquetteForAnaqsup.API\\wwwroot\\UploadFile\\Dataset_globale.xlsx",
       "Selectors": [],
       "ResponseHeaders": [
@@ -174,7 +174,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "964701"
+          "Value": "863315"
         },
         {
           "Name": "Content-Type",
@@ -182,11 +182,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\""
+          "Value": "\"YUmDRrXKNNj9Z4U1sunFA7y+PFlEak6UNC9jMmBYzSw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Jul 2025 09:21:48 GMT"
+          "Value": "Wed, 23 Jul 2025 12:31:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -196,7 +196,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8ersuns9kv"
+          "Value": "jbo62ls622"
         },
         {
           "Name": "label",
@@ -204,7 +204,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="
+          "Value": "sha256-YUmDRrXKNNj9Z4U1sunFA7y+PFlEak6UNC9jMmBYzSw="
         }
       ]
     },
@@ -219,7 +219,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "964701"
+          "Value": "863315"
         },
         {
           "Name": "Content-Type",
@@ -227,11 +227,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\""
+          "Value": "\"YUmDRrXKNNj9Z4U1sunFA7y+PFlEak6UNC9jMmBYzSw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Jul 2025 09:21:48 GMT"
+          "Value": "Wed, 23 Jul 2025 12:31:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -241,7 +241,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="
+          "Value": "sha256-YUmDRrXKNNj9Z4U1sunFA7y+PFlEak6UNC9jMmBYzSw="
         }
       ]
     },

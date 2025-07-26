@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>8ersuns9kv</Fingerprint>
-      <Integrity>UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=</Integrity>
+      <Fingerprint>jbo62ls622</Fingerprint>
+      <Integrity>YUmDRrXKNNj9Z4U1sunFA7y+PFlEak6UNC9jMmBYzSw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\Dataset_globale.xlsx'))</OriginalItemSpec>

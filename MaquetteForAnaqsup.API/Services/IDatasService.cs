@@ -8,11 +8,11 @@ namespace MaquetteForAnaqsup.API.Services
     public interface IDatasService
     {
         Task<IEnumerable<ImportData>> GetAllAsync();
-        Task<IEnumerable<ImportData>> GetFilterDataAsync(string? paramCodeUniv, string? paramDept, string? paramGrade, string? paramFormation, int? paramNiveau, int? paramSemestre, string? paramParcour);
-        Task<IEnumerable<ImportData>> GetFormationCommuneAsync(DataParameterDto dataParameter);
-        Task<IEnumerable<ImportData>> GetFormationDifferenceAsync(DataParameterDto dataParameter);
-        Task<IEnumerable<ImportData>> GetStatECSearch(string? paramLibelleEC);
-        Task<IEnumerable<DataStatComparaisonDto>> GetStatComparaisonAsync();
+        //Task<IEnumerable<ImportData>> GetFilterDataAsync(string? paramCodeUniv, string? paramDept, string? paramGrade, string? paramFormation, int? paramNiveau, int? paramSemestre, string? paramParcour);
+        //Task<IEnumerable<ImportData>> GetFormationCommuneAsync(DataParameterDto dataParameter);
+        //Task<IEnumerable<ImportData>> GetFormationDifferenceAsync(DataParameterDto dataParameter);
+        //Task<IEnumerable<ImportData>> GetStatECSearch(string? paramLibelleEC);
+        //Task<IEnumerable<DataStatComparaisonDto>> GetStatComparaisonAsync();
         Task<IEnumerable<DataUniversiteDto>> GetStatUniversiteAsync();
         Task<IEnumerable<DataDepartementDto>> GetStatDepartementAsync();
         Task<IEnumerable<DataGradeDto>> GetStatGradeAsync();

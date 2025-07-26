@@ -12,17 +12,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"734370"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},{"Name":"ETag","Value":"\u00225BkGDP50MN8h6WjGWJjuUxx4LdAvUlrFkocV1M22McI=\u0022"},{"Name":"Last-Modified","Value":"Thu, 03 Jul 2025 09:59:03 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/MaquetteForAnaqsup.API/UploadFile/Dataset_globale.8ersuns9kv.xlsx">
+    <StaticWebAssetEndpoint Include="_content/MaquetteForAnaqsup.API/UploadFile/Dataset_globale.jbo62ls622.xlsx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\Dataset_globale.xlsx'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"8ersuns9kv"},{"Name":"integrity","Value":"sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="},{"Name":"label","Value":"_content/MaquetteForAnaqsup.API/UploadFile/Dataset_globale.xlsx"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"964701"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},{"Name":"ETag","Value":"\u0022UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\u0022"},{"Name":"Last-Modified","Value":"Mon, 21 Jul 2025 09:21:48 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jbo62ls622"},{"Name":"integrity","Value":"sha256-YUmDRrXKNNj9Z4U1sunFA7y\u002BPFlEak6UNC9jMmBYzSw="},{"Name":"label","Value":"_content/MaquetteForAnaqsup.API/UploadFile/Dataset_globale.xlsx"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"863315"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},{"Name":"ETag","Value":"\u0022YUmDRrXKNNj9Z4U1sunFA7y\u002BPFlEak6UNC9jMmBYzSw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 12:31:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MaquetteForAnaqsup.API/UploadFile/Dataset_globale.xlsx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\Dataset_globale.xlsx'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"964701"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},{"Name":"ETag","Value":"\u0022UOx/uLpXnsPwU9onLneQN104bSFSQJv86rBdqup9MD0=\u0022"},{"Name":"Last-Modified","Value":"Mon, 21 Jul 2025 09:21:48 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-YUmDRrXKNNj9Z4U1sunFA7y\u002BPFlEak6UNC9jMmBYzSw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"863315"},{"Name":"Content-Type","Value":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},{"Name":"ETag","Value":"\u0022YUmDRrXKNNj9Z4U1sunFA7y\u002BPFlEak6UNC9jMmBYzSw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Jul 2025 12:31:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MaquetteForAnaqsup.API/UploadFile/ImportMaquetteComplete.kqohh3wfo7.xlsx">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\UploadFile\ImportMaquetteComplete.xlsx'))</AssetFile>
